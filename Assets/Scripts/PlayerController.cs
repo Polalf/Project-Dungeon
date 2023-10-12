@@ -11,16 +11,22 @@ public class PlayerController : MonoBehaviour
     [Header("References")]
     [SerializeField] private EnemyManagerBase m_enemyManager;
 
-    // Start is called before the first frame update
+    [Header("Stats")]
+    [SerializeField] private int life = 10;
+    
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
-    
+
+    public void TakeDamage(int _damage)
+    {
+        life -= _damage;
+    }
 }

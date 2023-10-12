@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private SpriteRenderer sr;
     [SerializeField] private Animator animator;
 
+    [Header("Attack")]
+    [SerializeField] private float atkRange;
+    [SerializeField] private LayerMask playeLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,15 @@ public class EnemyController : MonoBehaviour
 
     }
 
-   
+    private void Update()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(gameObject, atkRange, playeLayer);
+        
+        if(hit)
+        {
+
+        }
+    }
 
     public void RandomMove()
     {
@@ -63,6 +74,23 @@ public class EnemyController : MonoBehaviour
         transform.position = b;
 
         
+    }
+
+    private IEnumerator AttackAnim(Transform target)
+    {
+        Vector2 a = transform.position;
+        for (float  i = 0; i < m_movementTime; i+= Time.deltaTime)
+        {
+            transform.position = Vector2.LerpUnclamped(a, target.position, m_movementCurve.Evaluate(i / m_movementTime));
+            yield return null;
+
+            target.GetComponent<PlayerController>().TakeDamage(damage);
+        }
+        for (float i = 0; i < m_movementTime; i+= Time.deltaTime)
+        {
+            transform.position = Vector2.LerpUnclamped(target.position,a , m_movementCurve.Evaluate(i / m_movementTime));
+            yield return null;
+        }
     }
 
 }
