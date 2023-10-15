@@ -40,5 +40,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  e_sprite: {fileID: 21300000, guid: 44fe2a71ce19965459c49f47c70e64aa, type: 3}
-  e_animator: {fileID: 0}
+  e_idleSprite: {fileID: -244237950, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  e_sideWalkSprite:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  e_backWalkSprite:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  e_frontWalkSprite:
+  - {fileID: 0}
+  - {fileID: 0}

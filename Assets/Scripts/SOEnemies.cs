@@ -15,7 +15,10 @@ public class SOEnemies : ScriptableObject
     public AnimationCurve e_movementCurve;
 
     [Header("Visuals")]
-    public Sprite e_sprite;
-    public Animator e_animator;
-   
+    public Sprite e_idleSprite;
+    //public List<Sprite> e_atkSprite = new List<Sprite>(3);
+    public List<Sprite> e_sideWalkSprite = new List<Sprite>(4);
+    public List<Sprite> e_backWalkSprite = new List<Sprite>(4);
+    public List<Sprite> e_frontWalkSprite = new List<Sprite>(4);
+
 }

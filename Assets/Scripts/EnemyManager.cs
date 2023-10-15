@@ -18,7 +18,7 @@ public class EnemyManager : MonoBehaviour
     {
         for (int i = 0; i < iterations; i++)
         {
-
+            SpawnEnemy();
         }
     }
 
@@ -30,7 +30,39 @@ public class EnemyManager : MonoBehaviour
         int i = Random.Range(0, enemiesSo.Count);
 
         Vector2 spawnPos = Camera.main.ScreenToWorldPoint(new Vector2(x,y));
-        GameObject enemy = Instantiate(enemyPreb, new Vector2(x,y), transform.rotation);
+        GameObject enemy = Instantiate(enemyPreb,spawnPos, transform.rotation);
+        //enemy.GetComponent<EnemyController>().enabled = true;
         enemy.GetComponent<EnemyController>().enemyRef = enemiesSo[i];
+        instantiateEnemy.Add(enemy);
+    }
+
+    public void RemoveEnemy(GameObject enemy)
+    {
+        instantiateEnemy.Remove(enemy);
+
+    }
+
+    private void OnEnable()
+    {
+        TurnManagerBase.OnTurnChange += HandleTurnChange;
+    }
+    private void OnDisable()
+    {
+        TurnManagerBase.OnTurnChange -= HandleTurnChange;
+    }
+    private void HandleTurnChange(TurnManagerBase.Turn turn)
+    {
+        if (turn == TurnManagerBase.Turn.Player) return;
+
+        foreach (GameObject instance in instantiateEnemy)
+        {
+            if (instance.TryGetComponent(out EnemyController enemy))
+            {
+                if (enemy.canAtk == true) enemy.Attack();
+                else enemy.RandomMove();
+
+              
+            }
+        }
     }
 }
