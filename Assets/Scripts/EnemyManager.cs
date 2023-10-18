@@ -44,15 +44,15 @@ public class EnemyManager : MonoBehaviour
 
     private void OnEnable()
     {
-        TurnManagerBase.OnTurnChange += HandleTurnChange;
+        TurnManager.OnTurnChange += HandleTurnChange;
     }
     private void OnDisable()
     {
-        TurnManagerBase.OnTurnChange -= HandleTurnChange;
+        TurnManager.OnTurnChange -= HandleTurnChange;
     }
-    private void HandleTurnChange(TurnManagerBase.Turn turn)
+    private void HandleTurnChange(TurnManager.Turn turn)
     {
-        if (turn == TurnManagerBase.Turn.Player) return;
+        if (turn == TurnManager.Turn.Player) return;
 
         foreach (GameObject instance in instantiateEnemy)
         {
@@ -64,5 +64,10 @@ public class EnemyManager : MonoBehaviour
               
             }
         }
+        Invoke("EmdTurn", 0.5f);
+    }
+    private void EndTurn()
+    {
+        TurnManager.EndTurn();
     }
 }

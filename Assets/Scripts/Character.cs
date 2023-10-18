@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
     {
         Destroy(gameObject);
     }
-    IEnumerator DamageAnim (SpriteRenderer sr)
+    private IEnumerator DamageAnim (SpriteRenderer sr)
     {
         for (float i = 0; i < 1f; i+= Time.deltaTime)
         {

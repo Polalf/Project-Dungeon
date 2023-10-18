@@ -14,11 +14,11 @@ public class EnemyController : Character
     [Header("Movement")]
     [SerializeField] private float m_movementTime;
     [SerializeField] private AnimationCurve m_movementCurve;
-    private List<Sprite> actualSprite;
     private bool canStep1;
 
     [Header("Visuals")]
     [SerializeField] private SpriteRenderer sr;
+    private List<Sprite> actualSprites;
     
     
 
@@ -27,6 +27,7 @@ public class EnemyController : Character
     [SerializeField] private LayerMask playeLayer;
     public bool canAtk;
     private Transform target;
+    public bool inBattle;
 
 
     void Start()
@@ -64,28 +65,28 @@ public class EnemyController : Character
             4 => Vector2.down,
             _ => Vector2.zero,
         };
-
-        if(direction == Vector2.left)
+        #region SpriteList
+        if (direction == Vector2.left)
         {
             sr.flipX = true;
-            actualSprite = enemyRef.e_sideWalkSprite;
+            actualSprites = enemyRef.e_sideWalkSprite;
         }
         else if (direction == Vector2.right)
         {
             sr.flipX = false;
-            actualSprite = enemyRef.e_sideWalkSprite;
+            actualSprites = enemyRef.e_sideWalkSprite;
         }
         else if (direction == Vector2.up)
         {
             sr.flipX = false;
-            actualSprite = enemyRef.e_backWalkSprite;
+            actualSprites = enemyRef.e_backWalkSprite;
         }
         else if (direction == Vector2.down)
         {
             sr.flipX = false;
-            actualSprite = enemyRef.e_frontWalkSprite;
+            actualSprites = enemyRef.e_frontWalkSprite;
         }
-        
+        #endregion
 
         StartCoroutine(MovementAnimation(direction));
 
@@ -97,14 +98,14 @@ public class EnemyController : Character
         
         for (float i = 0; i < m_movementTime; i += Time.deltaTime)
         {
-            sr.sprite = canStep1 == true ? actualSprite[1] : actualSprite[2];
+            sr.sprite = canStep1 == true ? actualSprites[1] : actualSprites[2];
             transform.position = Vector2.LerpUnclamped(a, b, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
-            canStep1 = !canStep1;
-            sr.sprite = actualSprite[0];
         }
 
+        canStep1 = !canStep1;
         transform.position = b;
+        sr.sprite = actualSprites[0];
 
         
     }
@@ -121,14 +122,14 @@ public class EnemyController : Character
         {
             transform.position = Vector2.LerpUnclamped(a, _target.position, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
-            sr.sprite = actualSprite[4];
-            target.GetComponent<PlayerController>().TakeDamage(damage);
+            sr.sprite = actualSprites[4];
+            _target.GetComponent<PlayerController>().TakeDamage(damage);
         }
         for (float i = 0; i < m_movementTime; i+= Time.deltaTime)
         {
             transform.position = Vector2.LerpUnclamped(_target.position,a , m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
-            sr.sprite = actualSprite[0];
+            sr.sprite = actualSprites[0];
         }
     }
 

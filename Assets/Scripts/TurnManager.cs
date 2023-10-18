@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TurnManagerBase : MonoBehaviour
+public class TurnManager
+    : MonoBehaviour
 {
     // Enums
     public enum Turn { Player, Enemy }
