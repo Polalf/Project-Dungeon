@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-
+    [SerializeField] protected SpriteRenderer sr;
     public virtual void TakeDamage(SpriteRenderer sr)
     {
         StartCoroutine(DamageAnim(sr));
