@@ -32,6 +32,7 @@ public class EnemyController : Character
 
     void Start()
     {
+        gameObject.name = enemyRef.enemyName;
         sr = GetComponent<SpriteRenderer>();
         currentLife = enemyRef.e_maxLife;
         damage = enemyRef.e_damage;

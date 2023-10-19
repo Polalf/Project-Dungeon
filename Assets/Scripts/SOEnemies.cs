@@ -21,6 +21,7 @@ public class SOEnemies : ScriptableObject
     public List<Sprite> e_backWalkSprite = new List<Sprite>(4);
     public List<Sprite> e_frontWalkSprite = new List<Sprite>(4);
 
-    [Header("UI Settings")]
+    [Header("Bestiary")]
     public string e_infoLvl1, e_infoLvl2, e_infoLvl3, e_infoLvl4;
+    public int huntedCount = 0;
 }

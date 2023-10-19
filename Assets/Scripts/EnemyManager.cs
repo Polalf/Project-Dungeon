@@ -7,6 +7,7 @@ public class EnemyManager : MonoBehaviour
     [Header("References")]
     [SerializeField] private GameObject enemyPreb;
     [SerializeField] private List<SOEnemies> enemiesSo;
+    [SerializeField] private Bestiary bestiary;
 
     public List<GameObject> instantiateEnemy = new List<GameObject>();
 
@@ -35,9 +36,16 @@ public class EnemyManager : MonoBehaviour
         enemy.GetComponent<EnemyController>().enemyRef = enemiesSo[i];
         instantiateEnemy.Add(enemy);
     }
-
+    
     public void RemoveEnemy(GameObject enemy)
     {
+        for (int i = 0; i < enemiesSo.Count; i++)
+        {
+            if(enemy.name == enemiesSo[i].enemyName)
+            {
+                enemiesSo[i].huntedCount++;
+            }
+        }
         instantiateEnemy.Remove(enemy);
 
     }
