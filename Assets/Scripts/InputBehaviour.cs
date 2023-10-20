@@ -62,38 +62,40 @@ public class InputBehaviour : MonoBehaviour
                 }
             }
 
-            //if (pressed)
-            //{
-            //    tapTime += Time.deltaTime;
-
-            //    if (ta)
-            //}
+            if (pressed)
+            {
+                tapTime += Time.deltaTime;
+            }
         }
     }
 
     #region Funciones 
     private void Tap(Vector2 position)
     {
-        Vector2 topPos = Camera.main.ScreenToWorldPoint(position);
-        //p_raycastBehaviour
+        Vector2 tapPos = Camera.main.ScreenToWorldPoint(position);
+        p_raycastBehaviour.TryDoDamage(tapPos);
     }
 
     private void SwipeRigth()
     {
         p_playerController.MoveTo(new Vector2(1, 0));
+        Debug.Log("Swipe Derecha");
     }
 
     private void SwipeLeft()
     {
         p_playerController.MoveTo(new Vector2(-1, 0));
+        Debug.Log("Swipe Izquierda");
     }
     private void SwipeUp()
     {
         p_playerController.MoveTo(new Vector2(0, 1));
+        Debug.Log("Swipe Arriba");
     }
     private void SwipeDown()
     {
         p_playerController.MoveTo(new Vector2(0, -1));
+        Debug.Log("Swipe Abajo");
     }
     #endregion
 }

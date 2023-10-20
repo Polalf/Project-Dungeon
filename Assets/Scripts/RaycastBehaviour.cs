@@ -15,7 +15,7 @@ public class RaycastBehaviour : MonoBehaviour
         if (!hit.collider.CompareTag("Enemy")) return;
         if (hit.collider.TryGetComponent(out EnemyController enemy))
         {
-            if (enemy.inBattle) p_playerController.Attack(enemy.transform);
+            if (enemy.inRange) p_playerController.Attack(enemy.transform);
             else return;
         }
     }

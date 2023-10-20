@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
 
     [Header("Manager Settings")]
     [SerializeField] private int iterations;
-    [SerializeField] private Vector2 spawnArea;
+    [SerializeField] private int spawnArea;
 
     void Start()
     {
@@ -25,13 +25,13 @@ public class EnemyManager : MonoBehaviour
 
     private void SpawnEnemy()
     {
-        float x = Random.Range(-spawnArea.x,spawnArea.x);
-        float y = Random.Range(-spawnArea.y, spawnArea.y);
+        float x = Random.Range(-spawnArea,spawnArea);
+        float y = Random.Range(-spawnArea, spawnArea);
 
         int i = Random.Range(0, enemiesSo.Count);
 
         Vector2 spawnPos = Camera.main.ScreenToWorldPoint(new Vector2(x,y));
-        GameObject enemy = Instantiate(enemyPreb,spawnPos, transform.rotation);
+        GameObject enemy = Instantiate(enemyPreb, new Vector2(x, y), transform.rotation);
         //enemy.GetComponent<EnemyController>().enabled = true;
         enemy.GetComponent<EnemyController>().enemyRef = enemiesSo[i];
         instantiateEnemy.Add(enemy);
@@ -39,15 +39,7 @@ public class EnemyManager : MonoBehaviour
     
     public void RemoveEnemy(GameObject enemy)
     {
-        for (int i = 0; i < enemiesSo.Count; i++)
-        {
-            if(enemy.name == enemiesSo[i].enemyName)
-            {
-                enemiesSo[i].huntedCount++;
-            }
-        }
         instantiateEnemy.Remove(enemy);
-
     }
 
     private void OnEnable()
@@ -66,16 +58,17 @@ public class EnemyManager : MonoBehaviour
         {
             if (instance.TryGetComponent(out EnemyController enemy))
             {
-                if (enemy.canAtk == true) enemy.Attack();
+                enemy.isEnemyTurn = true;
+                if (enemy.canAtk == true) enemy.Attack(enemy.target);
                 else enemy.RandomMove();
 
               
             }
         }
-        Invoke("EmdTurn", 0.5f);
+        //Invoke("EmdTurn", 0.5f);
     }
-    private void EndTurn()
-    {
-        TurnManager.EndTurn();
-    }
+    //private void EndTurn()
+    //{
+    //    TurnManager.EndTurn();
+    //}
 }
