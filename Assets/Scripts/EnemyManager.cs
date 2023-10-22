@@ -59,16 +59,16 @@ public class EnemyManager : MonoBehaviour
             if (instance.TryGetComponent(out EnemyController enemy))
             {
                 enemy.isEnemyTurn = true;
-                if (enemy.canAtk == true) enemy.Attack(enemy.target);
-                else enemy.RandomMove();
+                if (enemy.canAtk == false) enemy.RandomMove();
+                else enemy.Attack(enemy.target);
 
-              
+
             }
         }
-        //Invoke("EmdTurn", 0.5f);
+        Invoke("EndTurn", 0.5f);
     }
-    //private void EndTurn()
-    //{
-    //    TurnManager.EndTurn();
-    //}
+    private void EndTurn()
+    {
+        TurnManager.EndTurn();
+    }
 }

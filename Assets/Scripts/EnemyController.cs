@@ -11,7 +11,6 @@ public class EnemyController : Character
     [SerializeField] private LayerMask targetMask;
     public bool canAtk;
     public Transform target;
-    public bool inRange;
 
     public bool isEnemyTurn = false;
     void Start()
@@ -31,14 +30,17 @@ public class EnemyController : Character
     private void Update()
     {
         RaycastHit2D hit;
-        hit = Physics2D.BoxCast(transform.position,new Vector2(atkRange,atkRange), 0, transform.position, targetMask);
+        hit = Physics2D.BoxCast(transform.position, new Vector2(atkRange, atkRange), 0, transform.position, atkRange,targetMask);
 
         canAtk = hit;
         //if (hit) target = hit.transform;
         //else target = null;
         target = hit == true ? hit.transform : null;
     }
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector2(atkRange, atkRange));
+    }
     public void RandomMove()
     {
         if (isMoving) return;

@@ -1850,13 +1850,14 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   damage: 10
-  atkRange: 3
+  atkRange: 2
   sr: {fileID: 1381691508}
   m_enemyManager: {fileID: 1451827194}
   targetMask:
     serializedVersion: 2
     m_Bits: 64
   targets: []
+  canAttack: 0
   sideWalk:
   - {fileID: 1892635252, guid: 0e3baeb9edbd22f45840ac1957a56514, type: 3}
   - {fileID: 1418419888, guid: 0e3baeb9edbd22f45840ac1957a56514, type: 3}
@@ -1886,7 +1887,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p_playerController: {fileID: 1381691504}
   p_raycastBehaviour: {fileID: 1381691506}
-  maxTapTime: 0.5
+  maxTapTime: 10
   playerPos: {x: 0, y: 0}
 --- !u!114 &1381691506
 MonoBehaviour:
@@ -1901,6 +1902,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   p_playerController: {fileID: 1381691504}
+  enemyMasck:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!61 &1381691507
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1908,7 +1912,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1381691499}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0

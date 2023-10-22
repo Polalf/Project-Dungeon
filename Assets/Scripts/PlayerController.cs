@@ -12,6 +12,7 @@ public class PlayerController : Character
     [Header("Attack")]
     [SerializeField] private LayerMask targetMask;
     [SerializeField] private List<Collider2D> targets;
+    public bool canAttack = false;
 
     [Header("Visuals")]
     [SerializeField] private List<Sprite> sideWalk = new List<Sprite>(4);
@@ -27,15 +28,16 @@ public class PlayerController : Character
     // Update is called once per frame
     void Update()
     {
-        
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(atkRange, atkRange), targetMask);
+        #region Targets 
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(atkRange, atkRange),0, targetMask);
         List<Collider2D> collidersList = colliders.ToList();
+
+        canAttack = canAttack == true ? collidersList.Count > 0 : collidersList.Count > 1;
         foreach (Collider2D collider in colliders)
         {
             if(CheckObjectInList(collider,targets) == false)
             {
                 targets.Add(collider);
-                if (collider.TryGetComponent(out EnemyController enemy)) enemy.inRange = true;
             }
         }
 
@@ -43,10 +45,10 @@ public class PlayerController : Character
         {
             if (CheckObjectInList(targets[i], collidersList) == false)
             {
-                targets[i].GetComponent<EnemyController>().inRange = false;
                 targets.Remove(targets[i]);
             }
         }
+        #endregion 
         //OnDrawGizmos();
     }
 
@@ -55,8 +57,26 @@ public class PlayerController : Character
         Gizmos.DrawWireCube(transform.position, new Vector2(atkRange, atkRange));
     }
 
+    public override void Attack(Transform _targetEnemy)
+    {
+        if (canAttack)
+        {
+            foreach (Collider2D enemy in targets)
+            {
+                if (enemy.transform == _targetEnemy)
+                {
+                    base.Attack(enemy.transform);
+                    Debug.Log("ATAque");
+                }
+                else return;
+            }
+        }
+        else return;
+    }
     public void MoveTo(Vector2 direction)
     {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, targetMask);
+        if (hit) return;
         //RaycastHit2D hit;
         #region SpriteList
         if (direction == Vector2.left)
@@ -82,26 +102,22 @@ public class PlayerController : Character
         #endregion
         if (isMoving) return;
         if (!isPlayerTurn) return;
-        if (targets.Count > 0)
-        {
-            foreach(Collider2D target in targets)
-            {
-                //if (direction.x + transform.position.x == target.transform.position.x)
-                //{
-                //    Debug.Log("no te puedes mover");
-                //    return;
-                //}
-                //if (direction.y + transform.position.y == target.transform.position.y)
-                //{
-                //    Debug.Log("no te puedes mover");
-                //    return;
-                //}
-               
-            }
-        }
+        
         Move(direction);
 
     }
+    #region Coroutines
+    public override IEnumerator MovementAnimation(Vector2 _direction)
+    {
+        yield return base.MovementAnimation(_direction);
+        TurnManager.EndTurn();
+    }
+    public override IEnumerator AttackAnimation(Transform _target)
+    {
+        yield return base.AttackAnimation(_target);
+        TurnManager.EndTurn();
+    }
+    #endregion
     bool CheckObjectInList(Collider2D _targetToCompare, List<Collider2D> list)
     {
         foreach (Collider2D target in list)
@@ -111,6 +127,7 @@ public class PlayerController : Character
         }
         return false;
     }
+    
     public override void Death()
     {
         //GameOver

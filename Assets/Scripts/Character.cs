@@ -36,7 +36,7 @@ public abstract class Character : MonoBehaviour
       
         
     }
-    public void Attack(Transform target)
+    public virtual void Attack(Transform target)
     {
         StartCoroutine(AttackAnimation(target));
     }
@@ -53,7 +53,7 @@ public abstract class Character : MonoBehaviour
     /// COROUTINES
     /// </summary>
 
-    public IEnumerator MovementAnimation(Vector2 _direction)
+    public virtual IEnumerator MovementAnimation(Vector2 _direction)
     {
         isMoving = true;
 
@@ -62,7 +62,7 @@ public abstract class Character : MonoBehaviour
 
         for (float i = 0; i < m_movementTime; i += Time.deltaTime)
         {
-            /*if(actualSprites.Count>2) */sr.sprite = canStep1 == true ? actualSprites[1] : actualSprites[2];
+            sr.sprite = canStep1 == true ? actualSprites[1] : actualSprites[2];
 
             transform.position = Vector2.LerpUnclamped(a, b, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
@@ -70,29 +70,34 @@ public abstract class Character : MonoBehaviour
 
         canStep1 = !canStep1;
         isMoving = false;
-        transform.position = b;
+        transform.position = b; 
         sr.sprite = actualSprites[0];
 
-        TurnManager.EndTurn();
+        
     }
-    public IEnumerator AttackAnimation(Transform _target)
+    public virtual IEnumerator AttackAnimation(Transform _target)
     {
         Vector2 a = transform.position;
+       // Vector2 b = a + new Vector2(_target.position.x,_target.position.y);
         for (float i = 0; i < m_movementTime; i += Time.deltaTime)
         {
-            transform.position = Vector2.LerpUnclamped(a, _target.position, m_movementCurve.Evaluate(i / m_movementTime));
+            transform.position = Vector2.LerpUnclamped(a,_target.position, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
             sr.sprite = actualSprites[3];
             _target.GetComponent<Character>().TakeDamage(damage);
         }
+        yield return null;
+        transform.position = _target.position;
+        yield return null;
         for (float i = 0; i < m_movementTime; i += Time.deltaTime)
         {
             transform.position = Vector2.LerpUnclamped(_target.position, a, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
             sr.sprite = actualSprites[0];
+            transform.position = a;
         }
 
-        TurnManager.EndTurn();
+        
     }
     private IEnumerator TakeDamageAnimation()
     {

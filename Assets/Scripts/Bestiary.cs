@@ -16,6 +16,7 @@ public class Bestiary : MonoBehaviour
     [SerializeField] private Image enemyImage;
     [SerializeField] private TMP_Text enemyName;
     [SerializeField] private TMP_Text infoLvl1, infoLvl2, infoLvl3, infoLvl4;
+    
 
     [Header("Page Behaviour")]
     [SerializeField] private int pageIndex;
@@ -27,6 +28,11 @@ public class Bestiary : MonoBehaviour
 
         if (pageIndex > -1)
         {
+            //foreach (SOEnemies enemy in )
+            //{
+                
+
+            
             gameObject.GetComponent<Image>().sprite = paperPage.sprite;
             switch (enemiesSO[pageIndex].huntedCount)
             {
@@ -49,6 +55,7 @@ public class Bestiary : MonoBehaviour
                 default:
                     break;
             }
+
         }
         else
         {
@@ -57,7 +64,13 @@ public class Bestiary : MonoBehaviour
             
         }
     }
+    public void OpenBook()
+    {
+        gameObject.SetActive(true);
+        //animation
 
+       
+    }
     public void NextPage()
     {
         // Animación
