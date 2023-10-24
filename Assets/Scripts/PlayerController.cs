@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+
 public class PlayerController : Character
 {
     [Header("References")]
@@ -19,6 +20,8 @@ public class PlayerController : Character
     [SerializeField] private List<Sprite> sideWalk = new List<Sprite>(4);
     [SerializeField] private List<Sprite> backWalk = new List<Sprite>(4);
     [SerializeField] private List<Sprite> frontWalk = new List<Sprite>(4);
+    
+    
 
     private bool isPlayerTurn = false;
     void Start()
@@ -61,6 +64,7 @@ public class PlayerController : Character
 
     public override void Attack(Transform _targetEnemy)
     {
+        
         Debug.Log("ataque");
         if (canAttack)
         {
@@ -77,6 +81,7 @@ public class PlayerController : Character
         else return;
         //base.Attack(_targetEnemy);
     }
+    //pu
     public void MoveTo(Vector2 direction)
     {
         if (!canMove) return;
@@ -114,7 +119,9 @@ public class PlayerController : Character
     #region Coroutines
     public override IEnumerator MovementAnimation(Vector2 _direction)
     {
+        
         yield return base.MovementAnimation(_direction);
+        
         TurnManager.EndTurn();
     }
     public override IEnumerator AttackAnimation(Transform _target)

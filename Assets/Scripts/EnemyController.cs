@@ -1,19 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class EnemyController : Character
 {
     [Header("Referecias")]
     public SOEnemies enemyRef;
+
 
     [Header("Attack")]
     [SerializeField] private LayerMask targetMask;
     public bool canAtk;
     public Transform target;
 
-    
+    [Header("UI")]
+    [SerializeField] private GameObject damagaObj;
+    [SerializeField] private TMP_Text damageUi, sombraDamage;
 
+    [Space]
     public bool isEnemyTurn = false;
     void Start()
     {
@@ -32,7 +36,11 @@ public class EnemyController : Character
 
     public override void TakeDamage(int _damage)
     {
+
+        //animator.Play(1);
         base.TakeDamage(_damage);
+        damagaObj.SetActive(true);
+        damageUi.text = _damage.ToString();
     }
 
     private void Update()
@@ -84,6 +92,7 @@ public class EnemyController : Character
                 actualSprites = enemyRef.e_frontWalkSprite;
             }
             #endregion
+           
             Move(direction);
         }
 

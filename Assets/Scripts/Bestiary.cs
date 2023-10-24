@@ -10,7 +10,7 @@ public class Bestiary : MonoBehaviour
     [Header("Monsters")]
     [SerializeField] private List<SOEnemies> enemiesSo;
 
-    [SerializeField] private List<int> counters = new List<int>(12);
+    [SerializeField] private List<int> counters = new List<int>(13);
 
     [Header("UI Base")]
     [SerializeField] private Sprite baseImage;
