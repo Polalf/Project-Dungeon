@@ -74,7 +74,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -110,12 +110,12 @@ MonoBehaviour:
   atkRange: 2
   sr: {fileID: 0}
   enemyRef: {fileID: 0}
+  enemiesDeath: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 8
   canAtk: 0
   target: {fileID: 0}
-  inRange: 0
   isEnemyTurn: 0
 --- !u!61 &345784619817321874
 BoxCollider2D:

@@ -5,12 +5,14 @@ using UnityEngine;
 public class EnemyController : Character
 {
     [Header("Referecias")]
-    public SOEnemies enemyRef; 
+    public SOEnemies enemyRef;
 
     [Header("Attack")]
     [SerializeField] private LayerMask targetMask;
     public bool canAtk;
     public Transform target;
+
+    
 
     public bool isEnemyTurn = false;
     void Start()
@@ -24,19 +26,24 @@ public class EnemyController : Character
 
         sr.sprite = enemyRef.e_idleSprite;
 
+        actualSprites = enemyRef.e_frontWalkSprite;
 
+    }
+
+    public override void TakeDamage(int _damage)
+    {
+        base.TakeDamage(_damage);
     }
 
     private void Update()
     {
         RaycastHit2D hit;
-        hit = Physics2D.BoxCast(transform.position, new Vector2(atkRange, atkRange), 0, transform.position, atkRange,targetMask);
-
+        hit = Physics2D.BoxCast(transform.position, new Vector2(atkRange, atkRange), 0, transform.position, atkRange, targetMask);
         canAtk = hit;
-        //if (hit) target = hit.transform;
-        //else target = null;
         target = hit == true ? hit.transform : null;
+
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(transform.position, new Vector2(atkRange, atkRange));
@@ -81,12 +88,11 @@ public class EnemyController : Character
         }
 
 
-       
+
     }
 
     public override void Death()
     {
-        enemyRef.huntedCount++;
         FindObjectOfType<EnemyManager>().RemoveEnemy(gameObject);
         Destroy(gameObject);
     }

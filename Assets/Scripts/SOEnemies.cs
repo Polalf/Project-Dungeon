@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Enemy", menuName = "Game/Enemies")]
 public class SOEnemies : ScriptableObject
 {
-
+    public int listPos = 0;
     public string enemyName;
     [Header("Settings")]
     public int e_maxLife;
@@ -23,5 +23,5 @@ public class SOEnemies : ScriptableObject
 
     [Header("Bestiary")]
     public string e_infoLvl1, e_infoLvl2, e_infoLvl3, e_infoLvl4;
-    public int huntedCount = 0;
+    //public int huntedCount = 0;
 }

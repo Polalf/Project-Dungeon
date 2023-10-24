@@ -8,7 +8,14 @@ using UnityEngine.Events;
 public class Bestiary : MonoBehaviour
 {
     [Header("Monsters")]
-    [SerializeField] List<SOEnemies> enemiesSO;
+    [SerializeField] private List<SOEnemies> enemiesSo;
+
+    [SerializeField] private List<int> counters = new List<int>(12);
+
+    [Header("UI Base")]
+    [SerializeField] private Sprite baseImage;
+    [SerializeField] private string unknownInfo;
+    
 
     [Header("UI")]
     [SerializeField] private Image frontPage, paperPage;
@@ -16,11 +23,10 @@ public class Bestiary : MonoBehaviour
     [SerializeField] private Image enemyImage;
     [SerializeField] private TMP_Text enemyName;
     [SerializeField] private TMP_Text infoLvl1, infoLvl2, infoLvl3, infoLvl4;
-    
 
     [Header("Page Behaviour")]
     [SerializeField] private int pageIndex;
-    
+
 
     private void Update()
     {
@@ -30,29 +36,35 @@ public class Bestiary : MonoBehaviour
         {
             //foreach (SOEnemies enemy in )
             //{
-                
 
-            
+
+
             gameObject.GetComponent<Image>().sprite = paperPage.sprite;
-            switch (enemiesSO[pageIndex].huntedCount)
+            switch (counters[pageIndex])
             {
                 case 1:
-                    enemyImage.sprite = enemiesSO[pageIndex].e_idleSprite;
-                    enemyName.text = enemiesSO[pageIndex].enemyName;
+                    enemyImage.sprite = enemiesSo[pageIndex].e_idleSprite;
+                    enemyName.text = enemiesSo[pageIndex].enemyName;
                     break;
                 case 2:
-                    infoLvl1.text = enemiesSO[pageIndex].e_infoLvl1;
+                    infoLvl1.text = enemiesSo[pageIndex].e_infoLvl1;
                     break;
                 case 3:
-                    infoLvl2.text = enemiesSO[pageIndex].e_infoLvl2;
+                    infoLvl2.text = enemiesSo[pageIndex].e_infoLvl2;
                     break;
                 case 4:
-                    infoLvl3.text = enemiesSO[pageIndex].e_infoLvl3;
+                    infoLvl3.text = enemiesSo[pageIndex].e_infoLvl3;
                     break;
                 case 5:
-                    infoLvl4.text = enemiesSO[pageIndex].e_infoLvl4;
+                    infoLvl4.text = enemiesSo[pageIndex].e_infoLvl4;
                     break;
                 default:
+                    enemyImage.sprite = baseImage;
+                    enemyName.text = unknownInfo;
+                    infoLvl1.text = unknownInfo;
+                    infoLvl2.text = unknownInfo;
+                    infoLvl3.text = unknownInfo;
+                    infoLvl4.text = unknownInfo;
                     break;
             }
 
@@ -61,38 +73,32 @@ public class Bestiary : MonoBehaviour
         {
             gameObject.GetComponent<Image>().sprite = frontPage.sprite;
             infoEnemies.SetActive(false);
-            
+
         }
+    }
+
+    public void AddEnemyCount(int listPos)
+    {
+        counters[listPos]++;
     }
     public void OpenBook()
     {
         gameObject.SetActive(true);
         //animation
 
-       
+
     }
     public void NextPage()
     {
         // Animación
-        pageIndex++;
-        if (pageIndex >= enemiesSO.Count)
-        {
-            pageIndex = enemiesSO.Count;
-            CloseBook();
-        }
+        
     }
 
     public void PreviousPage()
     {
-        pageIndex--;
-
-        if (pageIndex < 0)
-        {
-            pageIndex = -1;
-            CloseBook();
-        }
+        
     }
-    
+
     public void CloseBook()
     {
         //ANIMACION

@@ -39,6 +39,8 @@ public class EnemyManager : MonoBehaviour
     
     public void RemoveEnemy(GameObject enemy)
     {
+
+        bestiary.AddEnemyCount(enemy.GetComponent<EnemyController>().enemyRef.listPos);
         instantiateEnemy.Remove(enemy);
     }
 
@@ -54,17 +56,22 @@ public class EnemyManager : MonoBehaviour
     {
         if (turn == TurnManager.Turn.Player) return;
 
-        foreach (GameObject instance in instantiateEnemy)
+        if (instantiateEnemy.Count > 0)
         {
-            if (instance.TryGetComponent(out EnemyController enemy))
+            foreach (GameObject instance in instantiateEnemy)
             {
-                enemy.isEnemyTurn = true;
-                if (enemy.canAtk == false) enemy.RandomMove();
-                else enemy.Attack(enemy.target);
+                if (instance.TryGetComponent(out EnemyController enemy))
+                {
+                    enemy.isEnemyTurn = true;
+                    if (enemy.canAtk == false) enemy.RandomMove();
+                    else enemy.Attack(enemy.target);
 
 
+                }
             }
         }
+        else Invoke("EndTurn",0); 
+
         Invoke("EndTurn", 0.5f);
     }
     private void EndTurn()

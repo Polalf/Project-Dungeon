@@ -4,53 +4,154 @@ using UnityEngine;
 
 public class InputBehaviour : MonoBehaviour
 {
+    // Variables
     [Header("References")]
-    [SerializeField] private PlayerController p_playerController;
-    [SerializeField] private RaycastBehaviour p_raycastBehaviour;
+    [SerializeField] private PlayerController m_playerController;
+    [SerializeField] private RaycastBehaviour m_raycastBehaviour;
 
+    public EnemyManager nosewn;
+
+
+    // Methods
+    /// <summary>
+    /// Manda una señal con la posicion en pixeles del dedo
+    /// </summary>
+    private void Tap(Vector2 position)
+    {
+        Vector2 tapPos = Camera.main.ScreenToWorldPoint(position);
+        //m_raycastBehaviour.DoRay(tapPos);
+        m_raycastBehaviour.TryDoDamage(tapPos);
+        //foreach (var item in nosewn.instantiateEnemy)
+        //{
+        //    item.GetComponent<EnemyController>().TakeDamage(5);
+        //}
+        //TurnManager.EndTurn();
+    }
+
+    /// <summary>
+    /// Devuelve true si la pantalla esta siendo presionada y false si se dejo de presionar.
+    /// Tambien devuelve la posicion del dedo al presionar y la posicion del dedo al soltar.
+    /// </summary>
+   
+
+    /// <summary>
+    /// Swipe hacia la izquierda
+    /// </summary>
+    private void SwipeLeft()
+    {
+
+        m_playerController.MoveTo(new Vector2(-1, 0));
+
+
+
+    }
+
+    /// <summary>
+    /// Swipe hacia la derecha
+    /// </summary>
+    private void SwipeRight()
+    {
+
+        m_playerController.MoveTo(new Vector2(1, 0));
+
+
+
+    }
+
+    /// <summary>
+    /// Swipe hacia arriba
+    /// </summary>
+    private void SwipeUp()
+    {
+
+        m_playerController.MoveTo(new Vector2(0, 1));
+
+
+
+    }
+
+    /// <summary>
+    /// Swipe hacia abajo
+    /// </summary>
+    private void SwipeDown()
+    {
+
+        m_playerController.MoveTo(new Vector2(0, -1));
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Variables
     [Header("Settings")]
     [SerializeField] private float maxTapTime = 0.5f;
 
-    private Vector2 starPos;
+    private Vector2 startPos;
     private bool pressed;
+    private bool pressWasTriggered;
     private float tapTime;
 
+
     public Vector2 playerPos;
-    void Start()
+    private void Start()
     {
         playerPos = gameObject.transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
+    // Methods 
+    /// <summary>
+    /// Update is called every frame, if the MonoBehaviour is enabled.
+    /// </summary>
+    private void Update()
     {
+
         playerPos = gameObject.transform.position;
 
-        if(Input.touchCount>0)
+        if (Input.touchCount > 0)
         {
             Touch dedo = Input.GetTouch(0);
-            if(dedo.phase == TouchPhase.Began)
+
+            if (dedo.phase == TouchPhase.Began)
             {
                 tapTime = 0;
                 pressed = true;
-                starPos = dedo.position;
+                startPos = dedo.position;
+                pressWasTriggered = false;
             }
-            else if(dedo.phase==TouchPhase.Ended)
+
+            else if (dedo.phase == TouchPhase.Ended)
             {
                 pressed = false;
 
-                if(tapTime < maxTapTime)
+                if (pressWasTriggered)
                 {
-                    Vector2 deltaPos = dedo.position - starPos;
-                    if(deltaPos.magnitude < 10)
+                
+                }
+
+                if (tapTime < maxTapTime)
+                {
+                    Vector2 deltaPos = dedo.position - startPos;
+
+                    if (deltaPos.magnitude < 10)
                     {
                         Tap(dedo.position);
                     }
                     else
                     {
-                        if(Mathf.Abs(deltaPos.x) > Mathf.Abs(deltaPos.y))
+                        if (Mathf.Abs(deltaPos.x) > Mathf.Abs(deltaPos.y))
                         {
-                            if (deltaPos.x > 0) SwipeRigth();
+                            if (deltaPos.x > 0) SwipeRight();
                             else SwipeLeft();
                         }
                         else
@@ -58,6 +159,7 @@ public class InputBehaviour : MonoBehaviour
                             if (deltaPos.y > 0) SwipeUp();
                             else SwipeDown();
                         }
+
                     }
                 }
             }
@@ -65,37 +167,13 @@ public class InputBehaviour : MonoBehaviour
             if (pressed)
             {
                 tapTime += Time.deltaTime;
+
+                if (tapTime >= maxTapTime && !pressWasTriggered)
+                {
+                    pressWasTriggered = true;
+                    
+                }
             }
         }
     }
-
-    #region Funciones 
-    private void Tap(Vector2 position)
-    {
-        Vector2 tapPos = Camera.main.ScreenToWorldPoint(position);
-        p_raycastBehaviour.TryDoDamage(tapPos);
-    }
-
-    private void SwipeRigth()
-    {
-        p_playerController.MoveTo(new Vector2(1, 0));
-        Debug.Log("Swipe Derecha");
-    }
-
-    private void SwipeLeft()
-    {
-        p_playerController.MoveTo(new Vector2(-1, 0));
-        Debug.Log("Swipe Izquierda");
-    }
-    private void SwipeUp()
-    {
-        p_playerController.MoveTo(new Vector2(0, 1));
-        Debug.Log("Swipe Arriba");
-    }
-    private void SwipeDown()
-    {
-        p_playerController.MoveTo(new Vector2(0, -1));
-        Debug.Log("Swipe Abajo");
-    }
-    #endregion
 }

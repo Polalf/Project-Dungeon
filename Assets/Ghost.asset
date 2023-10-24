@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
   m_Name: Ghost
   m_EditorClassIdentifier: 
+  listPos: 1
   enemyName: Ghost
   e_maxLife: 10
   e_damage: 5
@@ -52,3 +53,7 @@ MonoBehaviour:
   e_frontWalkSprite:
   - {fileID: 0}
   - {fileID: 0}
+  e_infoLvl1: 
+  e_infoLvl2: 
+  e_infoLvl3: 
+  e_infoLvl4: 

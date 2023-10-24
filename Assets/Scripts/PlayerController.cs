@@ -7,7 +7,8 @@ public class PlayerController : Character
     [Header("References")]
     [SerializeField] private EnemyManager m_enemyManager;
 
-    
+    [Header("Movement")]
+    public bool canMove = true;
 
     [Header("Attack")]
     [SerializeField] private LayerMask targetMask;
@@ -32,7 +33,8 @@ public class PlayerController : Character
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(atkRange, atkRange),0, targetMask);
         List<Collider2D> collidersList = colliders.ToList();
 
-        canAttack = canAttack == true ? collidersList.Count > 0 : collidersList.Count > 1;
+        if (targets.Count > 0) canAttack = true;
+        else canAttack = false;
         foreach (Collider2D collider in colliders)
         {
             if(CheckObjectInList(collider,targets) == false)
@@ -59,11 +61,12 @@ public class PlayerController : Character
 
     public override void Attack(Transform _targetEnemy)
     {
+        Debug.Log("ataque");
         if (canAttack)
         {
             foreach (Collider2D enemy in targets)
             {
-                if (enemy.transform == _targetEnemy)
+                if (_targetEnemy == enemy.transform)
                 {
                     base.Attack(enemy.transform);
                     Debug.Log("ATAque");
@@ -72,9 +75,11 @@ public class PlayerController : Character
             }
         }
         else return;
+        //base.Attack(_targetEnemy);
     }
     public void MoveTo(Vector2 direction)
     {
+        if (!canMove) return;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, targetMask);
         if (hit) return;
         //RaycastHit2D hit;
@@ -132,6 +137,14 @@ public class PlayerController : Character
     {
         //GameOver
     }
+    #region UI
+    public void ActiveUi(bool _canMove)
+    {
+        canMove = _canMove;
+    }
+    #endregion
+
+
 
     private void OnEnable()
     {

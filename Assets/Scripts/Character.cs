@@ -42,10 +42,11 @@ public abstract class Character : MonoBehaviour
     }
     public virtual void TakeDamage(int _damage)
     {
-        if (!isInvincible)
+        if (isInvincible) return;
+        else
         {
-            life -= _damage;
             StartCoroutine(TakeDamageAnimation());
+            life = life - _damage;
         }
     }
     public abstract void Death();
@@ -78,7 +79,6 @@ public abstract class Character : MonoBehaviour
     public virtual IEnumerator AttackAnimation(Transform _target)
     {
         Vector2 a = transform.position;
-       // Vector2 b = a + new Vector2(_target.position.x,_target.position.y);
         for (float i = 0; i < m_movementTime; i += Time.deltaTime)
         {
             transform.position = Vector2.LerpUnclamped(a,_target.position, m_movementCurve.Evaluate(i / m_movementTime));
@@ -102,14 +102,20 @@ public abstract class Character : MonoBehaviour
     private IEnumerator TakeDamageAnimation()
     {
         isInvincible = true;
-        for (float i = 0; i < 1f; i+= Time.deltaTime)
+        int x = 0;
+        while (x < 4)
         {
-            sr.color += new Color(0, 0, 0, 0.5f);
-            yield return new WaitForSeconds(0.5f);
+            sr.color -= new Color(0, 0, 0, .5f);
+            yield return new WaitForSeconds(.1f);
             sr.color += new Color(0, 0, 0, 1);
+            x++;
+            yield return null;
         }
-        if (life <= 0) Death();
+      
         isInvincible = false;
+        sr.color = new Color(1,1,1,1);
+        if (life <= 0) Death();
+        yield return null;
     }
         
 }

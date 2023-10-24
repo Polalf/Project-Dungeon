@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class GameData : MonoBehaviour
+public class GameData 
 {
-    public int skeleton, mineCrab, bat, ghoul, parasite, ghost, demon, cerberus, imp, swampThing, moss, wasp;
+    //public List<SOEnemies> d_enemies;
+    //public int skeleton, mineCrab, bat, ghoul, parasite, ghost, demon, cerberus, imp, swampThing, moss, wasp;
+
+    public int count = 0;
+    public string nameEnemy;
     public GameData()
     {
-        skeleton = 0;
-        mineCrab = 0;
-        bat = 0;
-        ghoul = 0;
-        parasite = 0;
-        ghost = 0;
-        demon = 0;
-        cerberus = 0;
-        imp = 0;
-        swampThing = 0;
-        moss = 0;
-        wasp=0;
+        
+        count = 0;
     }
 }
