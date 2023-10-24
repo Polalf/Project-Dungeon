@@ -18,65 +18,103 @@ public class Bestiary : MonoBehaviour
     
 
     [Header("UI")]
-    [SerializeField] private Image frontPage, paperPage;
+    [SerializeField] private Sprite frontPage, paperPage;
     [SerializeField] private GameObject infoEnemies;
     [SerializeField] private Image enemyImage;
-    [SerializeField] private TMP_Text enemyName;
-    [SerializeField] private TMP_Text infoLvl1, infoLvl2, infoLvl3, infoLvl4;
+    [SerializeField] private TextMeshProUGUI enemyName, actualPage;
+    [SerializeField] private TextMeshProUGUI infoLvl1, infoLvl2, infoLvl3, infoLvl4;
 
     [Header("Page Behaviour")]
     [SerializeField] private int pageIndex;
 
+    private void Start()
+    {
+        enemyImage.sprite = baseImage;
+        enemyName.text = unknownInfo;
+        infoLvl1.text = unknownInfo;
+        infoLvl2.text = unknownInfo;
+        infoLvl3.text = unknownInfo;
+        infoLvl4.text = unknownInfo;
+    }
 
     private void Update()
     {
+        actualPage.text = pageIndex.ToString();
+        //if (pageIndex > -1)
+        //{
+           // gameObject.GetComponent<Image>().sprite = paperPage;
+        #region switch
+        //switch (counters[pageIndex])
+        //{
+        //    case 1:
+        //        enemyImage.sprite = enemiesSo[pageIndex].e_idleSprite;
+        //        enemyName.text = enemiesSo[pageIndex].enemyName;
+        //        break;
+        //    case 2:
+        //        infoLvl1.text = enemiesSo[pageIndex].e_infoLvl1;
+        //        break;
+        //    case 3:
+        //        infoLvl2.text = enemiesSo[pageIndex].e_infoLvl2;
+        //        break;
+        //    case 4:
+        //        infoLvl3.text = enemiesSo[pageIndex].e_infoLvl3;
+        //        break;
+        //    case 5:
+        //        infoLvl4.text = enemiesSo[pageIndex].e_infoLvl4;
+        //        break;
+        //    default:
+        //        enemyImage.sprite = baseImage;
+        //        enemyName.text = unknownInfo;
+        //        infoLvl1.text = unknownInfo;
+        //        infoLvl2.text = unknownInfo;
+        //        infoLvl3.text = unknownInfo;
+        //        infoLvl4.text = unknownInfo;
+        //        break;
+        //}
+        #endregion
 
+        //}
+        //else
+        //{
+        //    gameObject.GetComponent<Image>().sprite = frontPage.sprite;
+        //    infoEnemies.SetActive(false);
 
-        if (pageIndex > -1)
-        {
-            //foreach (SOEnemies enemy in )
-            //{
-
-
-
-            gameObject.GetComponent<Image>().sprite = paperPage.sprite;
-            switch (counters[pageIndex])
-            {
-                case 1:
-                    enemyImage.sprite = enemiesSo[pageIndex].e_idleSprite;
-                    enemyName.text = enemiesSo[pageIndex].enemyName;
-                    break;
-                case 2:
-                    infoLvl1.text = enemiesSo[pageIndex].e_infoLvl1;
-                    break;
-                case 3:
-                    infoLvl2.text = enemiesSo[pageIndex].e_infoLvl2;
-                    break;
-                case 4:
-                    infoLvl3.text = enemiesSo[pageIndex].e_infoLvl3;
-                    break;
-                case 5:
-                    infoLvl4.text = enemiesSo[pageIndex].e_infoLvl4;
-                    break;
-                default:
-                    enemyImage.sprite = baseImage;
-                    enemyName.text = unknownInfo;
-                    infoLvl1.text = unknownInfo;
-                    infoLvl2.text = unknownInfo;
-                    infoLvl3.text = unknownInfo;
-                    infoLvl4.text = unknownInfo;
-                    break;
-            }
-
-        }
-        else
-        {
-            gameObject.GetComponent<Image>().sprite = frontPage.sprite;
-            infoEnemies.SetActive(false);
-
-        }
+        //}
     }
 
+    public void ShowInfo(int _pageIndex)
+    {
+        if (counters[_pageIndex] >= 1)
+            {
+            enemyImage.sprite = enemiesSo[_pageIndex].e_idleSprite;
+            enemyName.text = enemiesSo[_pageIndex].enemyName;
+            if (counters[_pageIndex] >= enemiesSo[_pageIndex].killsTo1)
+            {
+                infoLvl1.text = enemiesSo[_pageIndex].e_infoLvl1.ToString();
+            }
+            if (counters[_pageIndex] >= enemiesSo[_pageIndex].killsTo2)
+            {
+                infoLvl2.text = enemiesSo[_pageIndex].e_infoLvl2;
+            }
+            if (counters[_pageIndex] >= enemiesSo[_pageIndex].killsTo3)
+            {
+                infoLvl3.text = enemiesSo[_pageIndex].e_infoLvl3;
+            }
+            if (counters[_pageIndex] >= enemiesSo[_pageIndex].killsTo4)
+            {
+                infoLvl4.text = enemiesSo[_pageIndex].e_infoLvl4;
+            }
+        }
+            else
+        {
+            enemyImage.sprite = baseImage;
+            enemyName.text = unknownInfo;
+            infoLvl1.text = unknownInfo;
+            infoLvl2.text = unknownInfo;
+            infoLvl3.text = unknownInfo;
+            infoLvl4.text = unknownInfo;
+        }
+    }
     public void AddEnemyCount(int listPos)
     {
         counters[listPos]++;
@@ -84,6 +122,7 @@ public class Bestiary : MonoBehaviour
     public void OpenBook()
     {
         gameObject.SetActive(true);
+        ShowInfo(pageIndex);
         //animation
 
 
@@ -91,12 +130,15 @@ public class Bestiary : MonoBehaviour
     public void NextPage()
     {
         // Animación
+        pageIndex++;
+        ShowInfo(pageIndex);
         
     }
 
     public void PreviousPage()
     {
-        
+        pageIndex--;
+        ShowInfo(pageIndex);
     }
 
     public void CloseBook()

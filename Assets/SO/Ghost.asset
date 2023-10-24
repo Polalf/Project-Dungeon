@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listPos: 1
   enemyName: Ghost
-  e_maxLife: 10
+  e_maxLife: 15
   e_damage: 5
   e_movementTime: 0.25
   e_movementCurve:
@@ -43,17 +43,19 @@ MonoBehaviour:
     m_RotationOrder: 4
   e_idleSprite: {fileID: -244237950, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
   e_sideWalkSprite:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -1931362254, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  - {fileID: -894345935, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
   e_backWalkSprite:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: -948891956, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  - {fileID: -658231017, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
   e_frontWalkSprite:
-  - {fileID: 0}
-  - {fileID: 0}
-  e_infoLvl1: 
-  e_infoLvl2: 
-  e_infoLvl3: 
-  e_infoLvl4: 
+  - {fileID: -244237950, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  - {fileID: 865719529, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  killsTo1: 2
+  killsTo2: 4
+  killsTo3: 10
+  killsTo4: 8
+  e_infoLvl1: nose loco
+  e_infoLvl2: aaa
+  e_infoLvl3: 'nose wachin '
+  e_infoLvl4: hola

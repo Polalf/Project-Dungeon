@@ -22,6 +22,7 @@ public class SOEnemies : ScriptableObject
     public List<Sprite> e_frontWalkSprite = new List<Sprite>(4);
 
     [Header("Bestiary")]
+    public int killsTo1;
+    public int killsTo2, killsTo3, killsTo4;
     public string e_infoLvl1, e_infoLvl2, e_infoLvl3, e_infoLvl4;
-    //public int huntedCount = 0;
 }

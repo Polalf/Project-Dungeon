@@ -9,9 +9,6 @@ public class InputBehaviour : MonoBehaviour
     [SerializeField] private PlayerController m_playerController;
     [SerializeField] private RaycastBehaviour m_raycastBehaviour;
 
-    public EnemyManager nosewn;
-
-
     // Methods
     /// <summary>
     /// Manda una señal con la posicion en pixeles del dedo
@@ -19,13 +16,8 @@ public class InputBehaviour : MonoBehaviour
     private void Tap(Vector2 position)
     {
         Vector2 tapPos = Camera.main.ScreenToWorldPoint(position);
-        //m_raycastBehaviour.DoRay(tapPos);
         m_raycastBehaviour.TryDoDamage(tapPos);
-        //foreach (var item in nosewn.instantiateEnemy)
-        //{
-        //    item.GetComponent<EnemyController>().TakeDamage(5);
-        //}
-        //TurnManager.EndTurn();
+        
     }
 
     /// <summary>

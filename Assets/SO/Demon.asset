@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
   m_Name: Demon
   m_EditorClassIdentifier: 
+  listPos: 0
   enemyName: Demon
   e_maxLife: 10
   e_damage: 5
@@ -56,3 +57,11 @@ MonoBehaviour:
   - {fileID: -694010250, guid: 0e3baeb9edbd22f45840ac1957a56514, type: 3}
   - {fileID: 1783139221, guid: 0e3baeb9edbd22f45840ac1957a56514, type: 3}
   - {fileID: 1822285349, guid: 0e3baeb9edbd22f45840ac1957a56514, type: 3}
+  killsTo1: 2
+  killsTo2: 3
+  killsTo3: 5
+  killsTo4: 6
+  e_infoLvl1: es un demonio
+  e_infoLvl2: tiene cuernos (como tu)
+  e_infoLvl3: es rojo
+  e_infoLvl4: es un hellboy a 16bits

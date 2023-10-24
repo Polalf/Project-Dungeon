@@ -63,8 +63,7 @@ public abstract class Character : MonoBehaviour
 
         for (float i = 0; i < m_movementTime; i += Time.deltaTime)
         {
-            sr.sprite = canStep1 == true ? actualSprites[1] : actualSprites[2];
-
+            if(actualSprites.Count > 3) sr.sprite = canStep1 == true ? actualSprites[1] : actualSprites[2];
             transform.position = Vector2.LerpUnclamped(a, b, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
         }
@@ -79,11 +78,13 @@ public abstract class Character : MonoBehaviour
     public virtual IEnumerator AttackAnimation(Transform _target)
     {
         Vector2 a = transform.position;
+        if (actualSprites.Count > 2) sr.sprite = actualSprites[3];
+        else sr.sprite = actualSprites[1];
         for (float i = 0; i < m_movementTime; i += Time.deltaTime)
         {
             transform.position = Vector2.LerpUnclamped(a,_target.position, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
-            sr.sprite = actualSprites[3];
+           
             _target.GetComponent<Character>().TakeDamage(damage);
         }
         yield return null;
@@ -93,9 +94,9 @@ public abstract class Character : MonoBehaviour
         {
             transform.position = Vector2.LerpUnclamped(_target.position, a, m_movementCurve.Evaluate(i / m_movementTime));
             yield return null;
-            sr.sprite = actualSprites[0];
             transform.position = a;
         }
+            sr.sprite = actualSprites[0];
 
         
     }
