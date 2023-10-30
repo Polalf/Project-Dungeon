@@ -7,6 +7,8 @@ public class PlayerController : Character
 {
     [Header("References")]
     [SerializeField] private EnemyManager m_enemyManager;
+    [Header("Life")]
+    private int maxLife;
 
     [Header("Movement")]
     public bool canMove = true;
@@ -81,7 +83,8 @@ public class PlayerController : Character
         else return;
         //base.Attack(_targetEnemy);
     }
-    //pu
+    
+   
     public void MoveTo(Vector2 direction)
     {
         if (!canMove) return;
@@ -151,6 +154,11 @@ public class PlayerController : Character
     }
     #endregion
 
+    public void Cure(int _lifeRecovered)
+    {
+        life += _lifeRecovered;
+        if (life > maxLife) life = maxLife;
+    }
 
 
     private void OnEnable()

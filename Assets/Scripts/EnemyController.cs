@@ -6,7 +6,7 @@ public class EnemyController : Character
 {
     [Header("Referecias")]
     public SOEnemies enemyRef;
-
+    [SerializeField] private DropLoot loot;
 
     [Header("Attack")]
     [SerializeField] private LayerMask targetMask;
@@ -33,6 +33,16 @@ public class EnemyController : Character
         actualSprites = enemyRef.e_frontWalkSprite;
 
     }
+    public void InTurn()
+    {
+        RaycastHit2D hit;
+        hit = Physics2D.BoxCast(transform.position, new Vector2(atkRange, atkRange), 0, transform.position, atkRange, targetMask);
+        canAtk = hit;
+        target = hit == true ? hit.transform : null;
+
+        if(canAtk) Attack(target);
+        else RandomMove();
+    }
 
     public override void TakeDamage(int _damage)
     {
@@ -43,14 +53,7 @@ public class EnemyController : Character
         damageUi.text = _damage.ToString();
     }
 
-    private void Update()
-    {
-        RaycastHit2D hit;
-        hit = Physics2D.BoxCast(transform.position, new Vector2(atkRange, atkRange), 0, transform.position, atkRange, targetMask);
-        canAtk = hit;
-        target = hit == true ? hit.transform : null;
-
-    }
+   
 
     private void OnDrawGizmos()
     {
@@ -92,17 +95,16 @@ public class EnemyController : Character
                 actualSprites = enemyRef.e_frontWalkSprite;
             }
             #endregion
-           
+
             Move(direction);
         }
-
-
-
+    
     }
 
     public override void Death()
     {
         FindObjectOfType<EnemyManager>().RemoveEnemy(gameObject);
+        loot.Drop();
         Destroy(gameObject);
     }
 

@@ -6,7 +6,8 @@ using UnityEngine;
 public abstract class Character : MonoBehaviour
 {
     [Header("Stats")]
-    [SerializeField] protected int life;
+    protected int life;
+    
     private bool isInvincible = false;
 
     [Header("Movement")]

@@ -8,7 +8,7 @@ public class InputBehaviour : MonoBehaviour
     [Header("References")]
     [SerializeField] private PlayerController m_playerController;
     [SerializeField] private RaycastBehaviour m_raycastBehaviour;
-
+    //[SerializeField] private Bow m_bow;
     // Methods
     /// <summary>
     /// Manda una señal con la posicion en pixeles del dedo
@@ -24,7 +24,17 @@ public class InputBehaviour : MonoBehaviour
     /// Devuelve true si la pantalla esta siendo presionada y false si se dejo de presionar.
     /// Tambien devuelve la posicion del dedo al presionar y la posicion del dedo al soltar.
     /// </summary>
-   
+    //private void Press(bool pressed, Vector2 position)
+    //{
+        
+    //    Vector2 targetToShot = Camera.main.ScreenToWorldPoint(position);
+    //    Debug.Log("Cargando arco");
+    //   // if (pressed) m_bow.ChargeBow();
+    //    //Cargar Arco
+    //    if(!pressed) m_bow.ShootArrow(position);
+    //    //Disparar Flechas
+    //}
+
 
     /// <summary>
     /// Swipe hacia la izquierda
@@ -96,10 +106,10 @@ public class InputBehaviour : MonoBehaviour
     private float tapTime;
 
 
-    public Vector2 playerPos;
+    //public Vector2 playerPos;
     private void Start()
     {
-        playerPos = gameObject.transform.position;
+        //playerPos = gameObject.transform.position;
     }
     // Methods 
     /// <summary>
@@ -108,7 +118,7 @@ public class InputBehaviour : MonoBehaviour
     private void Update()
     {
 
-        playerPos = gameObject.transform.position;
+        //playerPos = gameObject.transform.position;
 
         if (Input.touchCount > 0)
         {
@@ -128,7 +138,7 @@ public class InputBehaviour : MonoBehaviour
 
                 if (pressWasTriggered)
                 {
-                
+                   // Press(false, dedo.position);
                 }
 
                 if (tapTime < maxTapTime)
@@ -163,7 +173,7 @@ public class InputBehaviour : MonoBehaviour
                 if (tapTime >= maxTapTime && !pressWasTriggered)
                 {
                     pressWasTriggered = true;
-                    
+                    //Press(true, dedo.position);
                 }
             }
         }

@@ -250,7 +250,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &344416437
 PrefabInstance:
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1676340071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: ActiveUi
         m_Mode: 6
@@ -1228,17 +1228,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1552972865}
   m_CullTransparentMesh: 1
---- !u!114 &1676340071 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7948598403682241679, guid: 88339e6507e141d4aa49a83dab205b69, type: 3}
-  m_PrefabInstance: {fileID: 439037455}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981fcd1394fba98428fda32adfdd5ea0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1699737932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,9 +1638,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainingDoll
       objectReference: {fileID: 0}
+    - target: {fileID: 5723058143101124828, guid: df8a7eff7fe22654c973e3e74b91d8a3, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723058143101124829, guid: df8a7eff7fe22654c973e3e74b91d8a3, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723058143101124829, guid: df8a7eff7fe22654c973e3e74b91d8a3, type: 3}
+      propertyPath: m_SpriteTilingProperty.drawMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5723058143101124831, guid: df8a7eff7fe22654c973e3e74b91d8a3, type: 3}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723058143101124831, guid: df8a7eff7fe22654c973e3e74b91d8a3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723058143101124831, guid: df8a7eff7fe22654c973e3e74b91d8a3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5723058143101124831, guid: df8a7eff7fe22654c973e3e74b91d8a3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3428,7 +3437,7 @@ RectTransform:
   - {fileID: 5748691504971822329}
   - {fileID: 1903790872}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4022,7 +4031,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1676340071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: ActiveUi
         m_Mode: 6
@@ -4167,7 +4176,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1676340071}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: ActiveUi
         m_Mode: 6

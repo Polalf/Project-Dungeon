@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 5775901621338142977}
   - component: {fileID: 5775901621338142976}
   - component: {fileID: 4977312859621774590}
+  - component: {fileID: 3257640252152749792}
   - component: {fileID: 345784619817321874}
   m_Layer: 6
   m_Name: Enemy
@@ -339,7 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0693f31b9071e2643b6793fbb7404454, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 0
   m_movementTime: 0
   m_movementCurve:
     serializedVersion: 2
@@ -351,6 +351,7 @@ MonoBehaviour:
   atkRange: 2
   sr: {fileID: 0}
   enemyRef: {fileID: 0}
+  loot: {fileID: 3257640252152749792}
   targetMask:
     serializedVersion: 2
     m_Bits: 8
@@ -360,6 +361,22 @@ MonoBehaviour:
   damageUi: {fileID: 1488054665197533197}
   sombraDamage: {fileID: 2718774848716202811}
   isEnemyTurn: 0
+--- !u!114 &3257640252152749792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5775901621338142978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bc54e52d412354c853c36f678c2f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loots:
+  - {fileID: 8748828366237934502, guid: 4578c9588367db44c8a63cc29f0f2391, type: 3}
+  - {fileID: 7847382376187680437, guid: 0506ae972c18173418c9e5d31d47f9b2, type: 3}
+  probabilty: 0.6
 --- !u!61 &345784619817321874
 BoxCollider2D:
   m_ObjectHideFlags: 0

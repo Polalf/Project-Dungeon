@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 3ddce89c8d19ce24ca144b517d6fe44a
+guid: fc1989e8a814989408cc8f886c38d38d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 4096
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -117,7 +117,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_0
+      name: Front0Idle
       rect:
         serializedVersion: 2
         x: 0
@@ -131,14 +131,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 615b2b96927a0544fa06b780c95707ff
-      internalID: 876352264
+      spriteID: 5d88949eb5a30cd4098a0a1acab02402
+      internalID: 1870980422
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_1
+      name: Front1Step
       rect:
         serializedVersion: 2
         x: 16
@@ -152,14 +152,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5069a99a1f27405429c185001554f630
-      internalID: 1834563115
+      spriteID: a368331c1df12854dbe26d9cad684869
+      internalID: -1727158936
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_2
+      name: Front2Step
       rect:
         serializedVersion: 2
         x: 32
@@ -173,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7e87f59185da644ebfcc605be810dd8
-      internalID: -966687874
+      spriteID: b7fbf769a242fe340b0bd5b3f6856125
+      internalID: 856406466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_3
+      name: Front3Atk
       rect:
         serializedVersion: 2
         x: 48
@@ -194,14 +194,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4d32cf9971300934d9e7da3f1584fa72
-      internalID: 601180403
+      spriteID: 331c4c657bc14e2428706fba074b1c47
+      internalID: 473193034
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_4
+      name: skeletonSheet_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 364483f3373c6754897af4cdce46344f
+      internalID: -2047601376
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeletonSheet_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4986b975ae969a146b12499d8e1ebb6b
+      internalID: 1144259912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Side0Idle
       rect:
         serializedVersion: 2
         x: 0
@@ -215,14 +257,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 92b26b44e7d9f92449e41163356b6a51
-      internalID: -706635668
+      spriteID: 559b24b864a17d444be3be08c1adfdc3
+      internalID: 1552753295
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_5
+      name: Side1Step
       rect:
         serializedVersion: 2
         x: 16
@@ -236,14 +278,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fc3e126fe42b6347b09c46090db6d20
-      internalID: -1393648016
+      spriteID: e57ce36fb3ec47d4d928a87569ad6e25
+      internalID: 1838839138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_6
+      name: Side2Step
       rect:
         serializedVersion: 2
         x: 32
@@ -257,14 +299,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba874c7a5b0a8d64383bd50d2006eea7
-      internalID: 2059945375
+      spriteID: b3c82fbcd0af3cc43876dca2dd48b7cf
+      internalID: -1230695448
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_7
+      name: Side3Atk
       rect:
         serializedVersion: 2
         x: 48
@@ -278,14 +320,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e79d50f6428f4bf4ba21d09466c9b541
-      internalID: 1701803483
+      spriteID: cf4e38e34a3791e498b94c0e0fa43450
+      internalID: -428474691
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_8
+      name: skeletonSheet_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 666df9cfe6d3ff14d8c6ae22d60697a7
+      internalID: -213153404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeletonSheet_11
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe65de7efe308114b94c7d1d5ee06970
+      internalID: -1567311618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Back0Idle
       rect:
         serializedVersion: 2
         x: 0
@@ -299,14 +383,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1fdccbc01cb989c46967cdba88067597
-      internalID: 1775304090
+      spriteID: 30e28c6c5340ba145ad4fee455622dd8
+      internalID: 1525367894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_9
+      name: Back1Step
       rect:
         serializedVersion: 2
         x: 16
@@ -320,14 +404,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 456549e848e23f24eb6511e44d328769
-      internalID: 55008178
+      spriteID: 306b43e17bd6cd74b91b9021e5471f38
+      internalID: -1523367407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_10
+      name: Back2Step
       rect:
         serializedVersion: 2
         x: 32
@@ -341,14 +425,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0530b7c0653e274f8318623bf22b845
-      internalID: -1541558244
+      spriteID: 09a3add4f1ab913449d186cf23dece4c
+      internalID: 189524633
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: pixil-frame-0 (5)_11
+      name: Back3Atk
       rect:
         serializedVersion: 2
         x: 48
@@ -362,8 +446,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1718e04061f4c4c429756e3954932080
-      internalID: 295202268
+      spriteID: 1be22fe8083d8c24ea8dd07a3cb7c101
+      internalID: 368093640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeletonSheet_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 091b2bd146cefed47a9f8e7fc56316ba
+      internalID: 903143419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeletonSheet_17
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba5298319687ab458d0d13ae101db73
+      internalID: -69465729
       vertices: []
       indices: 
       edges: []
@@ -379,18 +505,24 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      pixil-frame-0 (5)_10: -1541558244
-      pixil-frame-0 (5)_8: 1775304090
-      pixil-frame-0 (5)_4: -706635668
-      pixil-frame-0 (5)_0: 876352264
-      pixil-frame-0 (5)_9: 55008178
-      pixil-frame-0 (5)_3: 601180403
-      pixil-frame-0 (5)_1: 1834563115
-      pixil-frame-0 (5)_2: -966687874
-      pixil-frame-0 (5)_11: 295202268
-      pixil-frame-0 (5)_6: 2059945375
-      pixil-frame-0 (5)_7: 1701803483
-      pixil-frame-0 (5)_5: -1393648016
+      Back1Step: -1523367407
+      skeletonSheet_17: -69465729
+      Back2Step: 189524633
+      Back0Idle: 1525367894
+      Side0Idle: 1552753295
+      Side2Step: -1230695448
+      skeletonSheet_16: 903143419
+      Side1Step: 1838839138
+      skeletonSheet_4: -2047601376
+      Back3Atk: 368093640
+      skeletonSheet_11: -1567311618
+      Front2Step: 856406466
+      Front0Idle: 1870980422
+      skeletonSheet_10: -213153404
+      Front3Atk: 473193034
+      Side3Atk: -428474691
+      Front1Step: -1727158936
+      skeletonSheet_5: 1144259912
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

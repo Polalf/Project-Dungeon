@@ -1,30 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Inventory : MonoBehaviour
 {
-    [SerializeField] private int arrows, potions;
+    [Header("UI")]
+    [SerializeField] private TMP_Text arrowUi;
+    [SerializeField] private TMP_Text potionsUi;
+    public int arrows;
+    [SerializeField] private int potions = 0;
+    [SerializeField] private PlayerController p_playerController;
+    [SerializeField] private int cantOfCure = 15;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        if(arrowUi == null) arrowUi = GameObject.Find("ArrowText").GetComponent<TMP_Text>();
+
+        if (potionsUi == null) potionsUi = GameObject.Find("PotionText").GetComponent<TMP_Text>();
+       
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        arrowUi.text = "X " +  arrows.ToString();
+        potionsUi.text = "X " + potions.ToString();
     }
-
-    public void AddArrows(int _arrowToAdd)
+    public void AddObject(int _cantidad, Loot.LootObject _typeLoot)
     {
-        arrows+= _arrowToAdd;
+        if (_typeLoot == Loot.LootObject.Arrow) arrows += _cantidad;
+        else if (_typeLoot == Loot.LootObject.Potion) potions += _cantidad;
     }
 
     public void RemoveArrows()
     {
         arrows--;
+    }
+    public void UsePotion()
+    {
+        p_playerController.Cure(cantOfCure);
+        potions--;
     }
 }
