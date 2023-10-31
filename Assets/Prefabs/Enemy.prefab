@@ -355,12 +355,14 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 8
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 136
   canAtk: 0
   target: {fileID: 0}
   damagaObj: {fileID: 3730229960831404522}
   damageUi: {fileID: 1488054665197533197}
   sombraDamage: {fileID: 2718774848716202811}
-  isEnemyTurn: 0
 --- !u!114 &3257640252152749792
 MonoBehaviour:
   m_ObjectHideFlags: 0

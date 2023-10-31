@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
+  m_Name: CristalBug
+  m_EditorClassIdentifier: 
+  listPos: 3
+  enemyName: Escarabajo de cristal
+  e_maxLife: 10
+  e_damage: 10
+  e_movementTime: 0.25
+  e_movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  e_idleSprite: {fileID: -1269151582, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  e_sideWalkSprite:
+  - {fileID: 1785953861, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: 1455300443, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: -549323642, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: -1895363951, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  e_backWalkSprite:
+  - {fileID: 218717819, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: 783904578, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: -1445090148, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: -1673759467, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  e_frontWalkSprite:
+  - {fileID: -1269151582, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: 357291803, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: 860731314, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  - {fileID: -2074887576, guid: 9544e0e446105f24980f1c4b35f04149, type: 3}
+  killsTo1: 2
+  killsTo2: 5
+  killsTo3: 7
+  killsTo4: 10
+  e_infoLvl1: Habitan en minas de cristales
+  e_infoLvl2: Generalmente no son agresivos, a menos que se sientan amenazados
+  e_infoLvl3: Se alimentan de cristales y otros minerales que se encuentran en las
+    minas
+  e_infoLvl4: El color de sus cristales depende del color de los cristales de los
+    que se alimenta

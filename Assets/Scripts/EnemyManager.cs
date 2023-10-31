@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private GameObject enemyPreb;
+    [SerializeField] private List<GameObject> enemiesPrefs;
     [SerializeField] private List<SOEnemies> enemiesSo;
     [SerializeField] private Bestiary bestiary;
 
@@ -32,9 +32,12 @@ public class EnemyManager : MonoBehaviour
         int i = Random.Range(0, enemiesSo.Count);
 
         Vector2 spawnPos = Camera.main.ScreenToWorldPoint(new Vector2(x,y));
-        GameObject enemy = Instantiate(enemyPreb, new Vector2(x, y), transform.rotation);
+        GameObject enemy = Instantiate(enemiesPrefs[i], new Vector2(x, y), transform.rotation);
         //enemy.GetComponent<EnemyController>().enabled = true;
-        enemy.GetComponent<EnemyController>().enemyRef = enemiesSo[i];
+        if (enemy.TryGetComponent(out EnemyController enemyController)) enemyController.enemyRef = enemiesSo[i];
+        else if (enemy.TryGetComponent(out CaninEnemyController caninEnemyController)) caninEnemyController.enemyRef = enemiesSo[i];
+        else if (enemy.TryGetComponent(out FlyingEnemy flyingEnemy)) flyingEnemy.enemyRef = enemiesSo[i];
+
         instantiateEnemy.Add(enemy);
     }
     

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4149962629249863047}
   - component: {fileID: 373514505556264508}
   - component: {fileID: 4195137616870790170}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: "Da\xF1o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77,7 +77,7 @@ GameObject:
   - component: {fileID: 8446615556245193162}
   - component: {fileID: 2682970834936553266}
   - component: {fileID: 5867771841803984464}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 4665891838115308597}
   - component: {fileID: 4665891838115308598}
   - component: {fileID: 4665891838115308599}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FlyingEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -357,7 +357,7 @@ MonoBehaviour:
     m_Bits: 8
   collisionMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 136
   canAtk: 0
   target: {fileID: 0}
   damagaObj: {fileID: 2690758207547858338}
@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 7924581428196132750}
   - component: {fileID: 6525158948442668927}
   - component: {fileID: 5448909033987154607}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: sombraDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

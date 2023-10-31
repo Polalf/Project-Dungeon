@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(DropLoot))]
 public class CaninEnemyController : Character
 {
     [Header("Referencias")] 

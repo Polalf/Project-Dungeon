@@ -24,13 +24,14 @@ public class Arrow : MonoBehaviour
         {
             enemy.TakeDamage(damage);
             Destroy(gameObject);
-            TurnManager.EndTurn();
+            //Invoke("EndTurn", 0.5f);
         }
         else if(hit.collider.TryGetComponent(out BreakableObject breakableObject))
         {
             breakableObject.TakeDamage(damage);
             Destroy(gameObject);
             TurnManager.EndTurn();
+            //Invoke("EndTurn", 0.5f);
         }
 
         if (!hit) return;
@@ -40,6 +41,9 @@ public class Arrow : MonoBehaviour
         Debug.DrawRay(transform.position, transform.up * 1, Color.red);
         
     }
-
+    private void EndTurn()
+    {
+        TurnManager.EndTurn();
+    }
  
 }

@@ -268,7 +268,7 @@ MonoBehaviour:
   canMove: 1
   collisionMask:
     serializedVersion: 2
-    m_Bits: 192
+    m_Bits: 448
   targetMask:
     serializedVersion: 2
     m_Bits: 64

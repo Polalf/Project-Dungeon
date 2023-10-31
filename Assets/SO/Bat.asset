@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
-  m_Name: TrainingDoll
+  m_Name: Bat
   m_EditorClassIdentifier: 
   listPos: 0
-  enemyName: TraningDoll
-  e_maxLife: 10
+  enemyName: 
+  e_maxLife: 0
   e_damage: 0
   e_movementTime: 0
   e_movementCurve:
@@ -23,16 +23,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  e_idleSprite: {fileID: 21300000, guid: 0c0cf02faa276b54bac6aa546214a4c4, type: 3}
+  e_idleSprite: {fileID: 0}
   e_sideWalkSprite: []
   e_backWalkSprite: []
   e_frontWalkSprite: []
-  killsTo1: 2
-  killsTo2: 3
-  killsTo3: 4
-  killsTo4: 5
-  e_infoLvl1: "Al matar Monstruos de las Mazmorras conseguiras informaci\xF3n de
-    ellos"
-  e_infoLvl2: "Mientras m\xE1s mates m\xE1s informaci\xF3n obtendras"
-  e_infoLvl3: "Completa todo el bestiario para ayudar a los dem\xE1s aventureros "
-  e_infoLvl4: 'Suerte '
+  killsTo1: 3
+  killsTo2: 8
+  killsTo3: 12
+  killsTo4: 15
+  e_infoLvl1: 
+  e_infoLvl2: 
+  e_infoLvl3: 
+  e_infoLvl4: 

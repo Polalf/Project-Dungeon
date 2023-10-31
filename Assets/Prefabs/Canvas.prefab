@@ -4044,8 +4044,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemiesSo:
-  - {fileID: 11400000, guid: 054243f3a36903b4c808f9b7f296fe4b, type: 2}
-  - {fileID: 11400000, guid: b421a92991002bb4e94eb64cfb0ed975, type: 2}
+  - {fileID: 11400000, guid: 75b732aeb9c468d4e8a2458f0d2f3485, type: 2}
+  - {fileID: 11400000, guid: d2865e58387366947b9eed24af5756d1, type: 2}
+  - {fileID: 11400000, guid: 70990b8300d31c041b8ebb9e540d610f, type: 2}
+  - {fileID: 11400000, guid: 773ed5c2cc0b32e4fb63706166809079, type: 2}
+  - {fileID: 11400000, guid: 4c62e871d2a9c7d46a4ed19e86b067c5, type: 2}
   counters: 0000000000000000000000000000000000000000000000000000000000000000
   baseImage: {fileID: 21300000, guid: 19ad2594dc438544499ed9577947f116, type: 3}
   unknownInfo: ???
