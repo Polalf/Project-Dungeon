@@ -57,6 +57,7 @@ public class Bow : MonoBehaviour
             }
             
         }
+        sr.sprite = null;
         if (isPress)
         {
             tapTime += Time.deltaTime;
@@ -66,7 +67,8 @@ public class Bow : MonoBehaviour
                 canFollow = true;
                 if(tapTime >= maxTapTime)
                 {
-                    sr.sprite = bowCharge;
+                    if (inventory.arrows > 0) sr.sprite = bowCharge;
+                    else sr.sprite = bowIdle;
                     canShoot = true;
                 }
             }
@@ -94,5 +96,6 @@ public class Bow : MonoBehaviour
             canShoot = false;
             canFollow = false;
         }
+        
     }
 }

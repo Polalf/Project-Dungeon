@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ef50dac9d597f54e9be7155c139b36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventory: {fileID: 0}
+  inventory: {fileID: 35529404351332834}
   minTapTime: 0.2
   maxTapTime: 0.5
   arrow: {fileID: 228663252072901425, guid: 81449ac98215f284e9bf38f212af02c3, type: 3}
@@ -262,8 +262,13 @@ MonoBehaviour:
   damage: 10
   atkRange: 2
   sr: {fileID: 8241063334226380411}
+  dontDestroy: 1
   m_enemyManager: {fileID: 0}
+  maxLife: 100
   canMove: 1
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 192
   targetMask:
     serializedVersion: 2
     m_Bits: 64
@@ -298,9 +303,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arrowUi: {fileID: 0}
   potionsUi: {fileID: 0}
-  arrows: 0
-  potions: 0
-  p_playerController: {fileID: 0}
+  arrows: 10
+  potions: 2
+  p_playerController: {fileID: 8241063334226380415}
   cantOfCure: 15
 --- !u!61 &8241063334226380412
 BoxCollider2D:

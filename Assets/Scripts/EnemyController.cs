@@ -9,7 +9,7 @@ public class EnemyController : Character
     [SerializeField] private DropLoot loot;
 
     [Header("Attack")]
-    [SerializeField] private LayerMask targetMask;
+    [SerializeField] private LayerMask targetMask, collisionMask;
     public bool canAtk;
     public Transform target;
 
@@ -17,8 +17,8 @@ public class EnemyController : Character
     [SerializeField] private GameObject damagaObj;
     [SerializeField] private TMP_Text damageUi, sombraDamage;
 
-    [Space]
-    public bool isEnemyTurn = false;
+   
+    
     void Start()
     {
         gameObject.name = enemyRef.enemyName;
@@ -51,6 +51,7 @@ public class EnemyController : Character
         base.TakeDamage(_damage);
         damagaObj.SetActive(true);
         damageUi.text = _damage.ToString();
+        sombraDamage.text = _damage.ToString();
     }
 
    
@@ -62,8 +63,8 @@ public class EnemyController : Character
     public void RandomMove()
     {
         if (isMoving) return;
-        if (isEnemyTurn)
-        {
+        //if (isEnemyTurn)
+        //{
             Vector2 direction = Random.Range(0, 5)
             switch
             {
@@ -96,8 +97,11 @@ public class EnemyController : Character
             }
             #endregion
 
-            Move(direction);
-        }
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1, collisionMask);
+            if (hit) return;
+            else Move(direction);
+
+        //}
     
     }
 

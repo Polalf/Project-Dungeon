@@ -39,5 +39,6 @@ public class Inventory : MonoBehaviour
     {
         p_playerController.Cure(cantOfCure);
         potions--;
+        if (potions <= 0) potions = 0;
     }
 }

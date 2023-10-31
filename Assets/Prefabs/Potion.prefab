@@ -126,3 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeOfLoot: 0
   maxQuant: 2
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8

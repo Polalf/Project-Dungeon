@@ -21,8 +21,11 @@ public class Bestiary : MonoBehaviour
     [SerializeField] private Sprite frontPage, paperPage;
     [SerializeField] private GameObject infoEnemies;
     [SerializeField] private Image enemyImage;
-    [SerializeField] private TextMeshProUGUI enemyName, actualPage;
+    [SerializeField] private TextMeshProUGUI enemyName;
     [SerializeField] private TextMeshProUGUI infoLvl1, infoLvl2, infoLvl3, infoLvl4;
+    [Header("UI Indice")]
+    [SerializeField] private GameObject indice;
+    [SerializeField] private List<Image> imagesIndex = new List<Image>(8);
 
     [Header("Page Behaviour")]
     [SerializeField] private int pageIndex;
@@ -35,51 +38,20 @@ public class Bestiary : MonoBehaviour
         infoLvl2.text = unknownInfo;
         infoLvl3.text = unknownInfo;
         infoLvl4.text = unknownInfo;
+
+        
     }
 
-    private void Update()
+    public void SelectedFromIndex(int _pageIndex)
     {
-        actualPage.text = pageIndex.ToString();
-        //if (pageIndex > -1)
-        //{
-           // gameObject.GetComponent<Image>().sprite = paperPage;
-        #region switch
-        //switch (counters[pageIndex])
-        //{
-        //    case 1:
-        //        enemyImage.sprite = enemiesSo[pageIndex].e_idleSprite;
-        //        enemyName.text = enemiesSo[pageIndex].enemyName;
-        //        break;
-        //    case 2:
-        //        infoLvl1.text = enemiesSo[pageIndex].e_infoLvl1;
-        //        break;
-        //    case 3:
-        //        infoLvl2.text = enemiesSo[pageIndex].e_infoLvl2;
-        //        break;
-        //    case 4:
-        //        infoLvl3.text = enemiesSo[pageIndex].e_infoLvl3;
-        //        break;
-        //    case 5:
-        //        infoLvl4.text = enemiesSo[pageIndex].e_infoLvl4;
-        //        break;
-        //    default:
-        //        enemyImage.sprite = baseImage;
-        //        enemyName.text = unknownInfo;
-        //        infoLvl1.text = unknownInfo;
-        //        infoLvl2.text = unknownInfo;
-        //        infoLvl3.text = unknownInfo;
-        //        infoLvl4.text = unknownInfo;
-        //        break;
-        //}
-        #endregion
-
-        //}
-        //else
-        //{
-        //    gameObject.GetComponent<Image>().sprite = frontPage.sprite;
-        //    infoEnemies.SetActive(false);
-
-        //}
+        indice.SetActive(false);
+        ShowInfo(_pageIndex);
+        infoEnemies.SetActive(true);
+    }
+    public void backToIndex()
+    {
+        infoEnemies.SetActive(false);
+        indice.SetActive(true);
     }
 
     public void ShowInfo(int _pageIndex)
@@ -121,10 +93,11 @@ public class Bestiary : MonoBehaviour
     }
     public void OpenBook()
     {
-        gameObject.SetActive(true);
-        ShowInfo(pageIndex);
-        //animation
-
+        for (int i = 0; i < counters.Count; i++)
+        {
+            if (counters[i] > 0) imagesIndex[i].sprite = enemiesSo[i].e_idleSprite;
+        }
+        indice.SetActive(true);
 
     }
     public void NextPage()
@@ -132,14 +105,16 @@ public class Bestiary : MonoBehaviour
         // Animación
         pageIndex++;
         ShowInfo(pageIndex);
-        
+        if (pageIndex > counters.Count) pageIndex = counters.Count;
     }
 
     public void PreviousPage()
     {
         pageIndex--;
         ShowInfo(pageIndex);
+        if (pageIndex <= 0) pageIndex = 0;
     }
+
 
     public void CloseBook()
     {

@@ -5,13 +5,16 @@ using System.Linq;
 
 public class PlayerController : Character
 {
+    [SerializeField] private bool dontDestroy;
+   
     [Header("References")]
     [SerializeField] private EnemyManager m_enemyManager;
     [Header("Life")]
-    private int maxLife;
+    [SerializeField] private int maxLife;
 
     [Header("Movement")]
     public bool canMove = true;
+    [SerializeField] private LayerMask collisionMask;
 
     [Header("Attack")]
     [SerializeField] private LayerMask targetMask;
@@ -26,9 +29,18 @@ public class PlayerController : Character
     
 
     private bool isPlayerTurn = false;
-    void Start()
+    private void Awake()
     {
-      
+        transform.position = Vector2.zero;
+        if(dontDestroy)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    private void Start()
+    {
+        life = maxLife;
+        m_enemyManager = FindObjectOfType<EnemyManager>();
     }
 
     // Update is called once per frame
@@ -88,7 +100,7 @@ public class PlayerController : Character
     public void MoveTo(Vector2 direction)
     {
         if (!canMove) return;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, targetMask);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1f, collisionMask);
         if (hit) return;
         //RaycastHit2D hit;
         #region SpriteList

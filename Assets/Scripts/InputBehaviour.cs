@@ -17,7 +17,6 @@ public class InputBehaviour : MonoBehaviour
     {
         Vector2 tapPos = Camera.main.ScreenToWorldPoint(position);
         m_raycastBehaviour.TryDoDamage(tapPos);
-        
     }
 
     /// <summary>
@@ -41,11 +40,7 @@ public class InputBehaviour : MonoBehaviour
     /// </summary>
     private void SwipeLeft()
     {
-
         m_playerController.MoveTo(new Vector2(-1, 0));
-
-
-
     }
 
     /// <summary>
@@ -53,11 +48,7 @@ public class InputBehaviour : MonoBehaviour
     /// </summary>
     private void SwipeRight()
     {
-
         m_playerController.MoveTo(new Vector2(1, 0));
-
-
-
     }
 
     /// <summary>
@@ -65,11 +56,7 @@ public class InputBehaviour : MonoBehaviour
     /// </summary>
     private void SwipeUp()
     {
-
         m_playerController.MoveTo(new Vector2(0, 1));
-
-
-
     }
 
     /// <summary>
@@ -79,9 +66,6 @@ public class InputBehaviour : MonoBehaviour
     {
 
         m_playerController.MoveTo(new Vector2(0, -1));
-
-
-
     }
 
 

@@ -13,24 +13,22 @@ public class Loot : MonoBehaviour
     [SerializeField] LootObject typeOfLoot;
     [SerializeField] private int maxQuant;
     private int currentQuant;
+    [SerializeField] LayerMask playerMask;
     // Start is called before the first frame update
     void Start()
     {
         currentQuant = Random.Range(1, maxQuant);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject.TryGetComponent(out Inventory player)) ;
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.zero, 1, playerMask);
+        
+        if(hit.collider.TryGetComponent(out Inventory player))
         {
-            if(typeOfLoot == LootObject.Potion)
-            {
-
-            }
-            else if(typeOfLoot == LootObject.Arrow)
-            {
-
-            }
+            player.AddObject(currentQuant, typeOfLoot);
+            Destroy(gameObject);
         }
     }
+    
 }

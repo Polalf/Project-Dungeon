@@ -6,9 +6,10 @@ public class CaninEnemyController : Character
 {
     [Header("Referencias")] 
     public SOEnemies enemyRef;
+    [SerializeField] private DropLoot loot;
 
     [Header("Attack")]
-    [SerializeField] private LayerMask targetMask;
+    [SerializeField] private LayerMask targetMask, collisionMask;
     [SerializeField] private bool canAtk = false;
     [SerializeField] private int turnsToAtk = 4;
     private int turnCount = 0;
@@ -34,7 +35,7 @@ public class CaninEnemyController : Character
         turnCount = 0;
     }
 
-    public void Inturn()
+    public void InTurn()
     {
         if(turnCount >= turnsToAtk)
         {
@@ -60,6 +61,7 @@ public class CaninEnemyController : Character
         base.TakeDamage(_damage);
         damageObj.SetActive(true);
         damageUi.text = _damage.ToString();
+        sombra.text = _damage.ToString();
     }
     public void RandomMove()
     {
@@ -72,21 +74,40 @@ public class CaninEnemyController : Character
             4 => Vector2.down,
             _ => Vector2.zero,
         };
-
-
+        #region SpriteList
+        if (direction == Vector2.left)
+        {
+            sr.flipX = true;
+            actualSprites = enemyRef.e_sideWalkSprite;
+        }
+        else if (direction == Vector2.right)
+        {
+            sr.flipX = false;
+            actualSprites = enemyRef.e_sideWalkSprite;
+        }
+        else if (direction == Vector2.up)
+        {
+            sr.flipX = false;
+            actualSprites = enemyRef.e_backWalkSprite;
+        }
+        else if (direction == Vector2.down)
+        {
+            sr.flipX = false;
+            actualSprites = enemyRef.e_frontWalkSprite;
+        }
+        #endregion
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1, collisionMask);
+        if (hit) return;
+        else Move(direction);
         turnCount++;
     }
 
 
-    public void CheckDirection(Vector2 _direction)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, _direction, 1, targetMask);
-        if (hit) return;
-        else Move(_direction);
-    }
+
     public override void Death()
     {
         FindObjectOfType<EnemyManager>().RemoveEnemy(gameObject);
+        loot.Drop();
         Destroy(gameObject);
     }
 }

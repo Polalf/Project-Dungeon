@@ -17,6 +17,7 @@ public class EnemyManager : MonoBehaviour
 
     void Start()
     {
+        //bestiary = FindObjectOfType<Bestiary>();
         for (int i = 0; i < iterations; i++)
         {
             SpawnEnemy();
@@ -62,11 +63,17 @@ public class EnemyManager : MonoBehaviour
             {
                 if (instance.TryGetComponent(out EnemyController enemy))
                 {
-                    enemy.isEnemyTurn = true;
-                    if (enemy.canAtk == false) enemy.RandomMove();
-                    else enemy.Attack(enemy.target);
-
-
+                    
+                    enemy.InTurn();
+                    
+                }
+                else if(instance.TryGetComponent(out CaninEnemyController caninEnemy))
+                {
+                    caninEnemy.InTurn();
+                }
+                else if(instance.TryGetComponent(out FlyingEnemy flyingEnemy))
+                {
+                    flyingEnemy.InTurn();
                 }
             }
         }
