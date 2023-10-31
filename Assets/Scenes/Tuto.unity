@@ -320,16 +320,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30f9af1d8649d5c47bc6f2bec6c51455, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemiesPrefs:
-  - {fileID: 1813978770065097072, guid: 48348748ac7363a4b86b5546f95341a1, type: 3}
-  - {fileID: 5775901621338142978, guid: c72c2d71362d53f45ba4b896b199bd66, type: 3}
-  enemiesSo:
-  - {fileID: 11400000, guid: 773ed5c2cc0b32e4fb63706166809079, type: 2}
-  - {fileID: 11400000, guid: b421a92991002bb4e94eb64cfb0ed975, type: 2}
+  enemiesPrefs: []
+  enemiesSo: []
   bestiary: {fileID: 2326501307929362679}
   instantiateEnemy: []
-  iterations: 5
-  spawnArea: 4
+  iterations: 0
+  spawnArea: 0
 --- !u!4 &741350063
 Transform:
   m_ObjectHideFlags: 0

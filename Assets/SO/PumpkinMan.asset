@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
+  m_Name: PumpkinMan
+  m_EditorClassIdentifier: 
+  listPos: 5
+  enemyName: Hombre Calabaza
+  e_maxLife: 15
+  e_damage: 15
+  e_movementTime: 0.25
+  e_movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  e_idleSprite: {fileID: -2128602679, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  e_sideWalkSprite:
+  - {fileID: -1967437860, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: 1785393811, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: -1296959387, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: -823554236, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  e_backWalkSprite:
+  - {fileID: -1691657936, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: -1730765182, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: 224515022, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: -1858461304, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  e_frontWalkSprite:
+  - {fileID: -2128602679, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: -2031695256, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: -688574891, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  - {fileID: -1990992410, guid: 0fae99494b9e4db438dbd8a49ee83532, type: 3}
+  killsTo1: 2
+  killsTo2: 6
+  killsTo3: 9
+  killsTo4: 12
+  e_infoLvl1: 'info importante '
+  e_infoLvl2: Esa calabaza en realidad es su cabeza
+  e_infoLvl3: 
+  e_infoLvl4: 

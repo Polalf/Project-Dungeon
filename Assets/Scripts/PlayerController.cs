@@ -5,6 +5,7 @@ using System.Linq;
 
 public class PlayerController : Character
 {
+    private PlayerController instance ;
     [SerializeField] private bool dontDestroy;
    
     [Header("References")]
@@ -31,14 +32,24 @@ public class PlayerController : Character
     private bool isPlayerTurn = false;
     private void Awake()
     {
-        transform.position = Vector2.zero;
-        if(dontDestroy)
+        
+        if (instance == null)
         {
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(gameObject);
+            }
+        }
+        
     }
     private void Start()
     {
+        transform.position = new Vector2(0,0);
         life = maxLife;
         m_enemyManager = FindObjectOfType<EnemyManager>();
     }

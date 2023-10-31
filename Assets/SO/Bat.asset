@@ -12,26 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
   m_Name: Bat
   m_EditorClassIdentifier: 
-  listPos: 0
-  enemyName: 
-  e_maxLife: 0
-  e_damage: 0
-  e_movementTime: 0
+  listPos: 4
+  enemyName: Murcierlago
+  e_maxLife: 10
+  e_damage: 15
+  e_movementTime: 0.25
   e_movementCurve:
     serializedVersion: 2
-    m_Curve: []
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  e_idleSprite: {fileID: 0}
-  e_sideWalkSprite: []
-  e_backWalkSprite: []
-  e_frontWalkSprite: []
+  e_idleSprite: {fileID: 1241275165, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  e_sideWalkSprite:
+  - {fileID: -1715990679, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: 1982287026, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  e_backWalkSprite:
+  - {fileID: 1241275165, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: 966512480, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  e_frontWalkSprite:
+  - {fileID: 731797130, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: -558978921, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
   killsTo1: 3
   killsTo2: 8
   killsTo3: 12
   killsTo4: 15
-  e_infoLvl1: 
-  e_infoLvl2: 
+  e_infoLvl1: Estos murcielagos son de murcia
+  e_infoLvl2: Es dificil acercarce a ellos por lo que se recomienda atacar con felchas
   e_infoLvl3: 
   e_infoLvl4: 

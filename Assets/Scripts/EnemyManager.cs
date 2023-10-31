@@ -2,12 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemyManager : Singleton<EnemyManager>
 {
+    public enum TypeOfMonsters
+    {
+        Training,
+        Mine,
+        Dungeon
+    }
+    
+ 
     [Header("References")]
     [SerializeField] private List<GameObject> enemiesPrefs;
     [SerializeField] private List<SOEnemies> enemiesSo;
     [SerializeField] private Bestiary bestiary;
+    public TypeOfMonsters biome;
 
     public List<GameObject> instantiateEnemy = new List<GameObject>();
 
@@ -15,8 +24,10 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private int iterations;
     [SerializeField] private int spawnArea;
 
+
     void Start()
     {
+        Debug.Log("Se inicia "+ biome);
         //bestiary = FindObjectOfType<Bestiary>();
         for (int i = 0; i < iterations; i++)
         {
@@ -32,7 +43,7 @@ public class EnemyManager : MonoBehaviour
         int i = Random.Range(0, enemiesSo.Count);
 
         Vector2 spawnPos = Camera.main.ScreenToWorldPoint(new Vector2(x,y));
-        GameObject enemy = Instantiate(enemiesPrefs[i], new Vector2(x, y), transform.rotation);
+        GameObject enemy = Instantiate(enemiesPrefs[i], new Vector2(transform.position.x + x, transform.position.y + y), transform.rotation);
         //enemy.GetComponent<EnemyController>().enabled = true;
         if (enemy.TryGetComponent(out EnemyController enemyController)) enemyController.enemyRef = enemiesSo[i];
         else if (enemy.TryGetComponent(out CaninEnemyController caninEnemyController)) caninEnemyController.enemyRef = enemiesSo[i];
