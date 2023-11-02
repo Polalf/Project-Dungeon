@@ -11,7 +11,7 @@ public class DropLoot : MonoBehaviour
     public void Drop()
     {
         float randomValue = Random.value;
-        if(randomValue >= probabilty)
+        if (randomValue >= probabilty)
         {
             Instantiate(loots[Random.Range(0, loots.Count)], transform.position, transform.rotation);
         }

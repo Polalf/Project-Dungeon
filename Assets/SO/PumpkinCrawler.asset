@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
+  m_Name: PumpkinCrawler
+  m_EditorClassIdentifier: 
+  listPos: 7
+  enemyName: 
+  e_maxLife: 20
+  e_damage: 20
+  e_movementTime: 0.2
+  e_movementCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  e_idleSprite: {fileID: -1991861656, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  e_sideWalkSprite:
+  - {fileID: -479617747, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: -1803205129, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: -84994657, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: -873865356, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  e_backWalkSprite:
+  - {fileID: -1477997613, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: -138520366, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: -873385485, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: -1563474829, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  e_frontWalkSprite:
+  - {fileID: -1991861656, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: -1532929454, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: 1096436406, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  - {fileID: 1220642076, guid: 9fdc5bcb8dcf32941807b8226d47bb91, type: 3}
+  killsTo1: 2
+  killsTo2: 5
+  killsTo3: 4
+  killsTo4: 9
+  e_infoLvl1: 
+  e_infoLvl2: 
+  e_infoLvl3: 
+  e_infoLvl4: 

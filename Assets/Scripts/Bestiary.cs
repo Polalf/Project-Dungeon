@@ -10,7 +10,7 @@ public class Bestiary : MonoBehaviour
     [Header("Monsters")]
     [SerializeField] private List<SOEnemies> enemiesSo;
 
-    [SerializeField] private List<int> counters = new List<int>(13);
+    [SerializeField] private List<int> counters = new List<int>(8);
 
     [Header("UI Base")]
     [SerializeField] private Sprite baseImage;
@@ -25,6 +25,7 @@ public class Bestiary : MonoBehaviour
     [SerializeField] private TextMeshProUGUI infoLvl1, infoLvl2, infoLvl3, infoLvl4;
     [Header("UI Indice")]
     [SerializeField] private GameObject indice;
+    [SerializeField] private GameObject folleto;
     [SerializeField] private List<Image> imagesIndex = new List<Image>(8);
 
     [Header("Page Behaviour")]
@@ -47,11 +48,6 @@ public class Bestiary : MonoBehaviour
         indice.SetActive(false);
         ShowInfo(_pageIndex);
         infoEnemies.SetActive(true);
-    }
-    public void backToIndex()
-    {
-        infoEnemies.SetActive(false);
-        indice.SetActive(true);
     }
 
     public void ShowInfo(int _pageIndex)
@@ -91,14 +87,16 @@ public class Bestiary : MonoBehaviour
     {
         counters[listPos]++;
     }
-    public void OpenBook()
+    public void ShowIndex()
     {
         for (int i = 0; i < counters.Count; i++)
         {
             if (counters[i] > 0) imagesIndex[i].sprite = enemiesSo[i].e_idleSprite;
         }
         indice.SetActive(true);
-
+        infoEnemies.SetActive(false);
+        folleto.SetActive(false);
+        
     }
     public void NextPage()
     {

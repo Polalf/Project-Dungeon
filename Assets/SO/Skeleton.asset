@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyName: Esqueleto de minero
   e_maxLife: 15
   e_damage: 15
-  e_movementTime: 0.25
+  e_movementTime: 0.2
   e_movementCurve:
     serializedVersion: 2
     m_Curve:

@@ -125,7 +125,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781addfc02d34c54281d13cfd78a251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trainingDollRef: {fileID: 11400000, guid: 75b732aeb9c468d4e8a2458f0d2f3485, type: 2}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_movementTime: 0
+  m_movementCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 0
+  atkRange: 0
+  sr: {fileID: 329445181565429129}
+  trainingDollRef: {fileID: 11400000, guid: d2865e58387366947b9eed24af5756d1, type: 2}
   bestiary: {fileID: 0}
   damageObj: {fileID: 5274145483641586144}
   damageUi: {fileID: 4474086529566146818}
@@ -141,7 +157,7 @@ GameObject:
   - component: {fileID: 4170425720244389347}
   - component: {fileID: 5623829086551732703}
   - component: {fileID: 4474086529566146818}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +331,7 @@ GameObject:
   - component: {fileID: 7308269779223196586}
   - component: {fileID: 8402680753922335186}
   - component: {fileID: 6836626103043302434}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: "Da\xF1o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +346,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5274145483641586144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2, y: -3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -382,7 +398,7 @@ GameObject:
   - component: {fileID: 3408077034874336972}
   - component: {fileID: 8061749587413313452}
   - component: {fileID: 1853202059955871512}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: sombraDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}

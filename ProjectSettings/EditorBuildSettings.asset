@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MineLevels/MineLvl1.unity
     guid: 3c70cf9a3e8b92940806e802979b80cb
   - enabled: 1
+    path: Assets/Scenes/MineLevels/MineLvl2.unity
+    guid: 13d7a78cdf722ee44b08e46ac30f2219
+  - enabled: 1
     path: Assets/Scenes/Halloween/HalloLvl1.unity
     guid: a5142e67bacea90438782a97788c331c
+  - enabled: 1
+    path: Assets/Scenes/Halloween/HalloLvl2.unity
+    guid: 4c4b1624af0f3104d85fba42c866424d
   m_configObjects: {}

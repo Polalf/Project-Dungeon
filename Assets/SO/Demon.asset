@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyName: Demon
   e_maxLife: 10
   e_damage: 5
-  e_movementTime: 0.25
+  e_movementTime: 0.2
   e_movementCurve:
     serializedVersion: 2
     m_Curve:

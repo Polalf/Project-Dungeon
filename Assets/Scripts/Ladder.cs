@@ -19,6 +19,7 @@ public class Ladder : MonoBehaviour
     }
     public void LoadScene()
     {
-       
+        PlayerController.instance.ReiniciarPosicion();
+        SceneManager.LoadScene(sceneToLoad);
     }
 }

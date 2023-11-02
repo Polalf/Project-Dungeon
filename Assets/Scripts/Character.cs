@@ -7,10 +7,11 @@ public abstract class Character : MonoBehaviour
 {
     [Header("Stats")]
     protected int life;
-    
+
     private bool isInvincible = false;
 
     [Header("Movement")]
+    [SerializeField] protected LayerMask collisionMask;
     [SerializeField] protected float m_movementTime;
     [SerializeField] protected AnimationCurve m_movementCurve;
     private bool canStep1 = false;
@@ -18,12 +19,14 @@ public abstract class Character : MonoBehaviour
     protected Coroutine m_movementCoroutine;
 
     [Header("Attack")]
+    [SerializeField] protected LayerMask targetMask;
     [SerializeField] protected int damage;
     [SerializeField] protected float atkRange;
 
     [Header("Visuals")]
     [SerializeField] protected SpriteRenderer sr;
     protected List<Sprite> actualSprites;
+  
 
     public void Move(Vector2 direction)
     {
@@ -78,6 +81,7 @@ public abstract class Character : MonoBehaviour
     }
     public virtual IEnumerator AttackAnimation(Transform _target)
     {
+        isMoving = true;
         Vector2 a = transform.position;
         if (actualSprites.Count > 2) sr.sprite = actualSprites[3];
         else sr.sprite = actualSprites[1];
@@ -98,7 +102,7 @@ public abstract class Character : MonoBehaviour
             transform.position = a;
         }
             sr.sprite = actualSprites[0];
-
+        isMoving = false;
         
     }
     private IEnumerator TakeDamageAnimation()

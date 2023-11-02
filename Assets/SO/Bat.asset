@@ -16,7 +16,7 @@ MonoBehaviour:
   enemyName: Murcierlago
   e_maxLife: 10
   e_damage: 15
-  e_movementTime: 0.25
+  e_movementTime: 0.2
   e_movementCurve:
     serializedVersion: 2
     m_Curve:
@@ -41,16 +41,19 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  e_idleSprite: {fileID: 1241275165, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  e_idleSprite: {fileID: 1547130836, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
   e_sideWalkSprite:
-  - {fileID: -1715990679, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
-  - {fileID: 1982287026, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: 387057858, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: 1649803740, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
   e_backWalkSprite:
-  - {fileID: 1241275165, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
-  - {fileID: 966512480, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: -636974260, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: 974804936, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
   e_frontWalkSprite:
-  - {fileID: 731797130, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
-  - {fileID: -558978921, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: -334163624, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  - {fileID: 1547130836, guid: 96da852a854d3704f94ec64b6fe0b11e, type: 3}
+  e_animSide: {fileID: 7400000, guid: a35eb84d5cc63ec4f89f5684034e8b0d, type: 2}
+  e_animBack: {fileID: 7400000, guid: b2aca295d7f598f428bde6bb2bb20faa, type: 2}
+  e_animFront: {fileID: 7400000, guid: f90ce7755660fdc429cf665756a0c2ff, type: 2}
   killsTo1: 3
   killsTo2: 8
   killsTo3: 12

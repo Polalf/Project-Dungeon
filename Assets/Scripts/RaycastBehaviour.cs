@@ -19,16 +19,17 @@ public class RaycastBehaviour : MonoBehaviour
 
     public void TryDoDamage(Vector2 worldPosition)
     {
-        RaycastHit2D hit = Physics2D.Raycast(worldPosition, new Vector3(0,0,1), 10);
+        RaycastHit2D hit = Physics2D.Raycast(worldPosition, new Vector3(0, 0, 1), 10);
 
         if (!hit) return;
-        if (!hit.collider.CompareTag("Enemy")) return;
-        if (hit.collider.TryGetComponent(out EnemyController enemy))
+        // if (!hit.collider.CompareTag("Enemy")) return;
+        if (hit.collider.TryGetComponent(out EnemyGeneral enemy))
         {
             p_playerController.Attack(enemy.transform);
-            //Debug.Log(hit.collider.name);
-            //// Hmm, tengo la referencia al enemigo que toqué (enemy), pero no recuerdo como hacerle daño...
-            //enemy.TakeDamage(5);
+        }
+        else if (hit.collider.TryGetComponent(out BreakableObject breakableObject))
+        {
+            p_playerController.Attack(breakableObject.transform);
         }
     }
 }

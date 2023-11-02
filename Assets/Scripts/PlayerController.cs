@@ -2,23 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerController : Character
 {
-    private PlayerController instance ;
-    [SerializeField] private bool dontDestroy;
+    public static PlayerController instance; 
+
    
     [Header("References")]
-    [SerializeField] private EnemyManager m_enemyManager;
+    //[SerializeField] private EnemyManager m_enemyManager;
     [Header("Life")]
     [SerializeField] private int maxLife;
 
     [Header("Movement")]
     public bool canMove = true;
-    [SerializeField] private LayerMask collisionMask;
+  
 
     [Header("Attack")]
-    [SerializeField] private LayerMask targetMask;
+  
     [SerializeField] private List<Collider2D> targets;
     public bool canAttack = false;
 
@@ -26,13 +28,16 @@ public class PlayerController : Character
     [SerializeField] private List<Sprite> sideWalk = new List<Sprite>(4);
     [SerializeField] private List<Sprite> backWalk = new List<Sprite>(4);
     [SerializeField] private List<Sprite> frontWalk = new List<Sprite>(4);
-    
-    
+
+    [Header("Ui")]
+    [SerializeField] private Image playerSprite;
+    [SerializeField] private TMP_Text uiLife;
+    [SerializeField] HealthBar healthBar;
 
     private bool isPlayerTurn = false;
     private void Awake()
     {
-        
+
         if (instance == null)
         {
             instance = this;
@@ -49,14 +54,18 @@ public class PlayerController : Character
     }
     private void Start()
     {
-        transform.position = new Vector2(0,0);
+        
         life = maxLife;
-        m_enemyManager = FindObjectOfType<EnemyManager>();
+        healthBar.SetMaxHealth (maxLife);
+       // m_enemyManager = FindObjectOfType<EnemyManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        playerSprite.sprite = sr.sprite;
+        uiLife.text = "Hp: " + life.ToString() + " / " + maxLife.ToString();
         #region Targets 
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, new Vector2(atkRange, atkRange),0, targetMask);
         List<Collider2D> collidersList = colliders.ToList();
@@ -89,7 +98,7 @@ public class PlayerController : Character
 
     public override void Attack(Transform _targetEnemy)
     {
-        
+        if (isMoving) return;
         Debug.Log("ataque");
         if (canAttack)
         {
@@ -97,7 +106,7 @@ public class PlayerController : Character
             {
                 if (_targetEnemy == enemy.transform)
                 {
-                    base.Attack(enemy.transform);
+                    StartCoroutine(AttackAnimation(_targetEnemy));
                     Debug.Log("ATAque");
                 }
                 else return;
@@ -106,8 +115,12 @@ public class PlayerController : Character
         else return;
         //base.Attack(_targetEnemy);
     }
-    
-   
+    public override void TakeDamage(int _damage)
+    {
+        base.TakeDamage(_damage);
+        healthBar.SetHealth(life);
+    }
+
     public void MoveTo(Vector2 direction)
     {
         if (!canMove) return;
@@ -147,12 +160,12 @@ public class PlayerController : Character
     {
         
         yield return base.MovementAnimation(_direction);
-        
         TurnManager.EndTurn();
     }
     public override IEnumerator AttackAnimation(Transform _target)
     {
         yield return base.AttackAnimation(_target);
+        yield return new WaitForSeconds(.5f);
         TurnManager.EndTurn();
     }
     #endregion
@@ -180,10 +193,14 @@ public class PlayerController : Character
     public void Cure(int _lifeRecovered)
     {
         life += _lifeRecovered;
+        healthBar.SetHealth(life);
         if (life > maxLife) life = maxLife;
     }
 
-
+    public void ReiniciarPosicion()
+    {
+        transform.position = Vector2.zero;
+    }
     private void OnEnable()
     {
         TurnManager.OnTurnChange += HandleTurn;

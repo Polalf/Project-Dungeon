@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d4c6e4a51d7494cbe263061b0f5857, type: 3}
   m_Name: Ghost
   m_EditorClassIdentifier: 
-  listPos: 1
-  enemyName: Ghost
+  listPos: 4
+  enemyName: Fantasma
   e_maxLife: 15
   e_damage: 5
-  e_movementTime: 0.25
+  e_movementTime: 0.2
   e_movementCurve:
     serializedVersion: 2
     m_Curve:
@@ -41,16 +41,16 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  e_idleSprite: {fileID: -244237950, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  e_idleSprite: {fileID: 1460874400, guid: c1685b91dc7f01a44becb4d7e3c17f56, type: 3}
   e_sideWalkSprite:
-  - {fileID: -1931362254, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
-  - {fileID: -894345935, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  - {fileID: -659016746, guid: c1685b91dc7f01a44becb4d7e3c17f56, type: 3}
+  - {fileID: 330295753, guid: c1685b91dc7f01a44becb4d7e3c17f56, type: 3}
   e_backWalkSprite:
-  - {fileID: -948891956, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
-  - {fileID: -658231017, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  - {fileID: 2061301757, guid: c1685b91dc7f01a44becb4d7e3c17f56, type: 3}
+  - {fileID: 2078563723, guid: c1685b91dc7f01a44becb4d7e3c17f56, type: 3}
   e_frontWalkSprite:
-  - {fileID: -244237950, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
-  - {fileID: 865719529, guid: 973b3c23a2b6dcc488deea2b17814acb, type: 3}
+  - {fileID: 1460874400, guid: c1685b91dc7f01a44becb4d7e3c17f56, type: 3}
+  - {fileID: -1495223540, guid: c1685b91dc7f01a44becb4d7e3c17f56, type: 3}
   killsTo1: 2
   killsTo2: 4
   killsTo3: 10

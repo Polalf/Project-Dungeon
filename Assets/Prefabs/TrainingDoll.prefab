@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 405993105158380692}
   - component: {fileID: 6718546761655123594}
   - component: {fileID: 8790389893228839711}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: "Da\xF1o"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 924907307780740518}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -78,7 +78,7 @@ GameObject:
   - component: {fileID: 5723058143101124828}
   - component: {fileID: 5723058143101124829}
   - component: {fileID: 3106359851931812406}
-  m_Layer: 6
+  m_Layer: 9
   m_Name: TrainingDoll
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -191,9 +191,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 781addfc02d34c54281d13cfd78a251b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 0
+  m_movementTime: 0
+  m_movementCurve:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  damage: 0
+  atkRange: 0
+  sr: {fileID: 5723058143101124828}
   trainingDollRef: {fileID: 11400000, guid: 75b732aeb9c468d4e8a2458f0d2f3485, type: 2}
   bestiary: {fileID: 0}
-  damageObj: {fileID: 5723058143101124826}
+  damageObj: {fileID: 924907307780740518}
   damageUi: {fileID: 7665955730022048332}
   sombra: {fileID: 3335770785720967144}
 --- !u!1 &6134302294003926908
@@ -207,7 +223,7 @@ GameObject:
   - component: {fileID: 3118958231703261145}
   - component: {fileID: 4886534354653185594}
   - component: {fileID: 7665955730022048332}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: Damage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +398,7 @@ GameObject:
   - component: {fileID: 3885717269329090821}
   - component: {fileID: 3335770785720967144}
   - component: {fileID: 5513458982436645663}
-  m_Layer: 6
+  m_Layer: 5
   m_Name: sombraDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
